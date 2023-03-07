@@ -32,7 +32,7 @@ Enjoy!
 * All your files must be executable
 * The length of your files will be tested using `wc`
 ## Projects
-[0x00-python-hello_world](./0x00-python-hello_world)
+1. [0x00-python-hello_world](./0x00-python-hello_world)
 ## Articles
 
 ## Credits
