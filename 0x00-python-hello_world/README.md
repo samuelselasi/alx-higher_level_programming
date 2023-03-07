@@ -103,6 +103,7 @@ Best School: 98
 guillaume@ubuntu:~/py/0x00$ 
 ```
 [2. Hello, print](./2-print.py)
+
 Write a Python script that prints exactly `"Programming is like building a multilingual puzzle`, followed by a new line.
 	* Use the function `print`
 ```
@@ -111,6 +112,7 @@ guillaume@ubuntu:~/py/0x00$ ./2-print.py
 guillaume@ubuntu:~/py/0x00$
 ```
 [3. Print integer](./3-print_number.py)
+
 Complete this [source code](https://github.com/holbertonschool/0x00.py/blob/master/3-print_number.py) in order to print the integer stored in the variable `number`, followed by `Battery street`, followed by a new line.
 * You can find the source code [here](https://github.com/holbertonschool/0x00.py/blob/master/3-print_number.py)
 * The output of the script should be:
@@ -125,6 +127,7 @@ guillaume@ubuntu:~/py/0x00$ ./3-print_number.py
 guillaume@ubuntu:~/py/0x00$ 
 ```
 [4. Print float](./4-print_float.py)
+
 Complete the source code in order to print the float stored in the variable `number` with a precision of 2 digits.
 * You can find the source code [here](https://github.com/holbertonschool/0x00.py/blob/master/4-print_float.py)
 * The output of the program should be:
