@@ -128,7 +128,7 @@ guillaume@ubuntu:~/py/0x00$
 ```
 [4. Print float](./4-print_float.py)
 
-Complete the source code in order to print the float stored in the variable `number` with a precision of 2 digits.
+Complete the [source code](https://github.com/holbertonschool/0x00.py/blob/master/4-print_float.py) in order to print the float stored in the variable `number` with a precision of 2 digits.
 * You can find the source code [here](https://github.com/holbertonschool/0x00.py/blob/master/4-print_float.py)
 * The output of the program should be:
 	* `Float:`, followed by the float with only 2 digits
