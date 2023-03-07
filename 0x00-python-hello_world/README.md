@@ -80,4 +80,16 @@ Namespaces are one honking great idea -- let's do more of those!
 `Pycodestyle` is now the [new standard of Python style code](https://github.com/PyCQA/pycodestyle/issues/466)
 
 ## Tasks
+[0. Run Python file](./0-run)
+* Write a Shell script that runs a Python script.
+* The Python file name will be saved in the environment variable `$PYFILE`
+```
+guillaume@ubuntu:~/py/0x00$ cat main.py 
+#!/usr/bin/python3
+print("Best School")
 
+guillaume@ubuntu:~/py/0x00$ export PYFILE=main.py
+guillaume@ubuntu:~/py/0x00$ ./0-run
+Best School
+guillaume@ubuntu:~/py/0x00$ 
+```
