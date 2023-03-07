@@ -1,4 +1,5 @@
 # 0x00.Python - Hello, World
+![48a9fdbd67c84a328a9df9ec8d93b9ac2458ac37721d7d53e51a27fb2bdc5263](https://user-images.githubusercontent.com/85158665/223382448-040d6b54-e2aa-47bd-b5ee-6b6ec84166a1.jpg)
 ## Author’s disclaimer
 ```
 Welcome to the Python world!
