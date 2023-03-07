@@ -274,6 +274,7 @@ int check_cycle(listint_t *list);
 
 #endif /* LISTS_H */
 ```
+
 ```
 carrie@ubuntu:~/0x00$ cat 10-linked_lists.c
 #include <stdio.h>
@@ -340,6 +341,7 @@ void free_listint(listint_t *head)
     }
 }
 ```
+
 ```
 carrie@ubuntu:~/0x00$ cat 10-main.c
 #include <stdlib.h>
@@ -396,6 +398,7 @@ int main(void)
     return (0);
 }
 ```
+
 ```
 carrie@ubuntu:~/0x00$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 10-main.c 10-check_cycle.c 10-linked_lists.c -o cycle
 carrie@ubuntu:~/0x00$$ ./cycle
@@ -412,3 +415,21 @@ Linked list has a cycle
 carrie@ubuntu:~/0x00$
 ```
 ***Solving a problem is already a big win! but finding the best and optimal way to solve it, it’s way better! Think about the most optimal / fastest way to do it.***
+
+[11. Hello, write](./100-write.py)
+
+Write a Python script that prints exactly `and that piece of art is useful - Dora Korpar, 2015-10-19`, followed by a new line.
+* Use the function `write` from the `sys` module
+* You are not allowed to use print
+* Your script should print to `stderr`
+* Your script should exit with the status code `1`
+```
+guillaume@ubuntu:~/py/0x00$ ./100-write.py
+and that piece of art is useful - Dora Korpar, 2015-10-19
+guillaume@ubuntu:~/py/0x00$ echo $?
+1
+guillaume@ubuntu:~/py/0x00$ ./100-write.py 2> q
+guillaume@ubuntu:~/py/0x00$ cat q
+and that piece of art is useful - Dora Korpar, 2015-10-19
+guillaume@ubuntu:~/py/0x00$
+```
