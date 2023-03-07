@@ -115,7 +115,7 @@ Complete this [source code](https://github.com/holbertonschool/0x00.py/blob/mast
 * You can find the source code [here](https://github.com/holbertonschool/0x00.py/blob/master/3-print_number.py)
 * The output of the script should be:
 	* the number, followed by `Battery street`,
-	*followed by a new line
+	* followed by a new line
 * You are not allowed to cast the variable `number` into a string
 * Your code must be 3 lines long
 * You have to use f-strings [tips](https://realpython.com/python-f-strings/)
