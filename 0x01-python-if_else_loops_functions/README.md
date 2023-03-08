@@ -72,7 +72,7 @@ This program will assign a random signed number to the variable `number` each ti
 
 * You can find the source code [here](https://github.com/holbertonschool/0x01.py/blob/master/1-last_digit_py)
 * The variable `number` will store a different value every time you will run this program
-* You don’t have to understand what `import`, `random.randint` do. **Please do not touch this code.** This line should not change: `number = random.randint(-10000, 10000)`
+* You don’t have to understand what `import`, `random.randint` do. **Please do not touch this code**. This line should not change: `number = random.randint(-10000, 10000)`
 * The output of the program should be:
 	* The string `Last digit of`, followed by
 	* the number, followed by
@@ -117,4 +117,16 @@ Write a program that prints the ASCII alphabet, in lowercase, not followed by a 
 ```
 guillaume@ubuntu:~/0x01$ ./2-print_alphabet.py
 abcdefghijklmnopqrstuvwxyzguillaume@ubuntu:~/0x01$
+```
+[3. When I was having that alphabet soup, I never thought that it would pay off](3-print_alphabt.py)
+
+Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.
+* Print all the letters except `q` and `e`
+* You can only use one `print` function with string format
+* You can only use one loop in your code
+* You are not allowed to store characters in a variable
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x01$ ./3-print_alphabt.py
+abcdfghijklmnoprstuvwxyzguillaume@ubuntu:~/0x01$
 ```
