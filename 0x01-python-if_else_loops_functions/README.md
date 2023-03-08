@@ -197,3 +197,33 @@ guillaume@ubuntu:~/0x01$ ./6-print_comb3.py
 01, 02, 03, 04, 05, 06, 07, 08, 09, 12, 13, 14, 15, 16, 17, 18, 19, 23, 24, 25, 26, 27, 28, 29, 34, 35, 36, 37, 38, 39, 45, 46, 47, 48, 49, 56, 57, 58, 59, 67, 68, 69, 78, 79, 89
 guillaume@ubuntu:~/0x01$
 ```
+[7. islower](./7-islower.py)
+
+Write a function that checks for lowercase character.
+* Prototype: `def islower(c):`
+* Returns `True` if `c` is lowercase
+* Returns `False` otherwise
+* You are not allowed to import any module
+* You are not allowed to use `str.upper()` and `str.isupper()`
+* [Tips: ord()](https://docs.python.org/3.4/library/functions.html?highlight=ord#ord)
+
+You don’t need to understand `__import__`
+```
+guillaume@ubuntu:~/0x01$ cat 7-main.py
+#!/usr/bin/env python3
+islower = __import__('7-islower').islower
+
+print("a is {}".format("lower" if islower("a") else "upper"))
+print("H is {}".format("lower" if islower("H") else "upper"))
+print("A is {}".format("lower" if islower("A") else "upper"))
+print("3 is {}".format("lower" if islower("3") else "upper"))
+print("g is {}".format("lower" if islower("g") else "upper"))
+
+guillaume@ubuntu:~/0x01$ ./7-main.py
+a is lower
+H is upper
+A is upper
+3 is upper
+g is lower
+guillaume@ubuntu:~/0x01$
+```
