@@ -1147,7 +1147,7 @@ GitHub repository: alx-higher_level_programming
 Directory: 0x01-python-if_else_loops_functions
 File: 100-print_tebahpla.py
    
-15. Remove at position](./101-remove_char_at.py)
+[15. Remove at position](./101-remove_char_at.py)
 
 Write a function that creates a copy of the string, removing the character at the position `n` (not the Python way, the “C array index”).
 
