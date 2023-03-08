@@ -106,3 +106,15 @@ guillaume@ubuntu:~/0x01$ ./1-last_digit.py
 Last digit of 5169 is 9 and is greater than 5
 guillaume@ubuntu:~/0x01$
 ```
+
+[2. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game](./2-print_alphabet.py)
+
+Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.
+* You can only use one `print` function with string format
+* You can only use one loop in your code
+* You are not allowed to store characters in a variable
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x01$ ./2-print_alphabet.py
+abcdefghijklmnopqrstuvwxyzguillaume@ubuntu:~/0x01$
+```
