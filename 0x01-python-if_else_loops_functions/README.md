@@ -1,5 +1,5 @@
 # 0x01. Python - if/else, loops, functions
-
+![code](https://user-images.githubusercontent.com/85158665/223667350-7fcd3562-2ab3-4988-85e7-33f721556405.png)
 ## Resourcs
 **Read or watch**
 * [More Control Flow Tools](https://docs.python.org/3/tutorial/controlflow.html) (Read until “4.6. Defining Functions” included)
