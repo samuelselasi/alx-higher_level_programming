@@ -35,6 +35,6 @@ Enjoy!
 0. [0x00-python-hello_world](./0x00-python-hello_world)
 1. [0x01-python-if_else_loops_functions](./0x01-python-if_else_loops_functions)
 ## Articles
-
+1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 ## Credits
 Collaborators are acknowledged within each project
