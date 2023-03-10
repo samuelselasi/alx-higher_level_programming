@@ -181,3 +181,4 @@ guillaume@ubuntu:~/0x02$ ./3-infinite_add.py 11111111111111111111111111111111111
 guillaume@ubuntu:~/0x02$
 ```
 Remember how you did (or did not) do it in C? `#pythoniscool`
+![621c6dd72e1acff708141f3fab6dfa6ff37c5ee6](https://user-images.githubusercontent.com/85158665/224276440-47f28b8b-64c7-4c47-87f8-2f037d0f9818.jpg)
