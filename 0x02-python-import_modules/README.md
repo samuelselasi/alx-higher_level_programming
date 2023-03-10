@@ -300,3 +300,14 @@ Unknown operator. Available operators: +, -, * and /
 1
 guillaume@ubuntu:~/0x02$
 ```
+[7. Easy print](./101-easy_print.py)
+
+Write a program that prints `#pythoniscool`, followed by a new line, in the standard output.
+
+* Your program should be maximum 2 lines long
+* You are not allowed to use `print` or `eval` or `open` or `import sys` in your file `101-easy_print.py`
+```
+guillaume@ubuntu:~/0x02$ ./101-easy_print.py
+#pythoniscool
+guillaume@ubuntu:~/0x02$
+```
