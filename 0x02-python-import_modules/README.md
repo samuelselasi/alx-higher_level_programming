@@ -313,7 +313,7 @@ guillaume@ubuntu:~/0x02$
 ```
 [8. ByteCode -> Python #3](./102-magic_calculation.py)
 
-Write the Python function def magic_calculation(a, b): that does exactly the same as the following Python bytecode:
+Write the Python function `def magic_calculation(a, b):` that does exactly the same as the following Python bytecode:
 
 ```
 3           0 LOAD_CONST               1 (0)
