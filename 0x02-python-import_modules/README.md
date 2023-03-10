@@ -182,3 +182,18 @@ guillaume@ubuntu:~/0x02$
 ```
 Remember how you did (or did not) do it in C? `#pythoniscool`
 ![621c6dd72e1acff708141f3fab6dfa6ff37c5ee6](https://user-images.githubusercontent.com/85158665/224276440-47f28b8b-64c7-4c47-87f8-2f037d0f9818.jpg)
+[4. Who are you?](./4-hidden_discovery.py)
+
+Write a program that prints all the names defined by the compiled module [hidden_4.pyc](./hidden_4.pyc) (please download it locally).
+* You should print one name per line, in alpha order
+* You should print only names that do not start with `__`
+* Your code should not be executed when imported
+* Make sure you are running your code in Python3.8.x (`hidden_4.pyc` has been compiled with this version)
+```
+guillaume@ubuntu:~/0x02$ curl -Lso "hidden_4.pyc" "https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc"
+guillaume@ubuntu:~/0x02$ ./4-hidden_discovery.py | sort
+my_secret_santa
+print_hidden
+print_school
+guillaume@ubuntu:~/0x02$
+```
