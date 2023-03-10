@@ -182,6 +182,7 @@ guillaume@ubuntu:~/0x02$
 ```
 Remember how you did (or did not) do it in C? `#pythoniscool`
 ![621c6dd72e1acff708141f3fab6dfa6ff37c5ee6](https://user-images.githubusercontent.com/85158665/224276440-47f28b8b-64c7-4c47-87f8-2f037d0f9818.jpg)
+
 [4. Who are you?](./4-hidden_discovery.py)
 
 Write a program that prints all the names defined by the compiled module [hidden_4.pyc](./hidden_4.pyc) (please download it locally).
