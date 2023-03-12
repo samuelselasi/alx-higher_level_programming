@@ -5,7 +5,7 @@
 /**
  * print_python_list_info - print python list
  * @p: python object
- * Return: None
+ * Return: None.
  */
 
 void print_python_list_info(PyObject *p)
