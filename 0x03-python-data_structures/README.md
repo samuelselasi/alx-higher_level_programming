@@ -532,6 +532,7 @@ CPython is the reference implementation of the Python programming language. Writ
 Since we now know a bit of C, we can look at what is happening under the hood of Python. Let’s have fun with Python and C, and let’s look at what makes Python so easy to use.
 
 * All your files will be interpreted/compiled on Ubuntu 14.04 LTS
+
 ![7e7834b535261d05532fb80a9304f7051c4ad7ac](https://user-images.githubusercontent.com/85158665/224836551-d9b8e320-1117-4b41-aaaf-6bdb4ae88a55.gif)
 
 Create a C function that prints some basic info about Python lists.
