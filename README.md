@@ -36,7 +36,9 @@ Enjoy!
 1. [0x01-python-if_else_loops_functions](./0x01-python-if_else_loops_functions)
 2. [0x02-python-import_modules](./0x02-python-import_modules)
 3. [0x03-python-data_structures](./0x03-python-data_structures)
+4. [0x04-python-more_data_structures](./0x04-python-more_data_structures)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
+2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
 ## Credits
 Collaborators are acknowledged within each project
