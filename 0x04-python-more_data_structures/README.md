@@ -505,6 +505,7 @@ guillaume@ubuntu:~/0x04$
 [16. CPython #1: PyBytesObject](./103-python.c)
 
 Create two C functions that print some basic info about Python lists and Python bytes objects.
+
 ![8030f8429cb90b3fc145b994112e2dae8c4030e0](https://user-images.githubusercontent.com/85158665/225452672-9b55e20f-06d1-48b4-bbdd-506e1f599c2f.gif)
 
 Python lists:
