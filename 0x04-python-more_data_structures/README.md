@@ -113,3 +113,21 @@ guillaume@ubuntu:~/0x04$ ./3-main.py
 ['C']
 guillaume@ubuntu:~/0x04$
 ```
+[4. Only differents](./4-only_diff_elements.py)
+
+* Prototype: `def only_diff_elements(set_1, set_2):`
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x04$ cat 4-main.py
+#!/usr/bin/python3
+only_diff_elements = __import__('4-only_diff_elements').only_diff_elements
+
+set_1 = { "Python", "C", "Javascript" }
+set_2 = { "Bash", "C", "Ruby", "Perl" }
+od_set = only_diff_elements(set_1, set_2)
+print(sorted(list(od_set)))
+
+guillaume@ubuntu:~/0x04$ ./4-main.py
+['Bash', 'Javascript', 'Perl', 'Python', 'Ruby']
+guillaume@ubuntu:~/0x04$
+```
