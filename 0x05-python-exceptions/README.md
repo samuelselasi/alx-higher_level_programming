@@ -425,6 +425,7 @@ Write the Python function `def magic_calculation(a, b):` that does exactly the s
 
 Create three C functions that print some basic info about Python lists, Python bytes an Python float objects.
 
+![070710952984e4d126e114405cefe83af2271ce8](https://user-images.githubusercontent.com/85158665/228029934-3d818196-c086-47f5-9a72-b69ee7424347.gif)
 
 
 Python lists:
