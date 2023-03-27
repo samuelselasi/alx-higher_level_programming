@@ -1,4 +1,4 @@
- 3           0 LOAD_CONST               1 (0)
+  3           0 LOAD_CONST               1 (0)
               3 STORE_FAST               2 (result)
 
   4           6 SETUP_LOOP              94 (to 103)
