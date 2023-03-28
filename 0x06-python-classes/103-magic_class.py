@@ -8,7 +8,7 @@ import math
 class MagicClass:
     """Class that defines a circle"""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """
         Define private instance attribute: radius
         Raise TypeError if radius is not an integer
