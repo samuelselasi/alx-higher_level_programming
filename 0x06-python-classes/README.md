@@ -29,3 +29,23 @@ Read or watch the below resources in the order presented.
 * A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
 ## More Info
 **Documentation is now mandatory!** Each module, class, and method must contain docstring as comments. Example [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+
+[0. My first square](./0-square.py)
+
+Write an empty class `Square` that defines a square:
+
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x06$ cat 0-main.py
+#!/usr/bin/python3
+Square = __import__('0-square').Square
+
+my_square = Square()
+print(type(my_square))
+print(my_square.__dict__)
+
+guillaume@ubuntu:~/0x06$ ./0-main.py
+<class '0-square.Square'>
+{}
+guillaume@ubuntu:~/0x06$
+```
