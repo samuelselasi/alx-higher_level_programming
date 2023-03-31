@@ -39,6 +39,7 @@ Enjoy!
 4. [0x04-python-more_data_structures](./0x04-python-more_data_structures)
 5. [0x05-python-exceptions](./0x05-python-exceptions)
 6. [0x06-python-classes](./0x06-python-classes)
+7. [0x07-python-test_driven_development](./0x07-python-test_driven_development)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
