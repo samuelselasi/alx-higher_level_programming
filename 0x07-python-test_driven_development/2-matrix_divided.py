@@ -4,9 +4,8 @@
 
 def matrix_divided(matrix, div):
     """
-    Function that divides the integer/float numbers of a matrix
-    Raise TypeError if elements of matrix/div/list != int/float/matrix size !=
-    Raise ZeroDivisionError if div is zero
+    Function that divides all elements of a matrix
+    Raise TypeError and ZeroDiviionError with messages
     """
 
     if not type(div) in (int, float):
@@ -15,26 +14,26 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    errt_msg = "matrix must be a matrix (list of lists) of integers/floats"
+    terr_msg = "matrix must be a matrix (list of lists) of integers/floats"
 
     if not matrix or not isinstance(matrix, list):
-        raise TypeError(err_msg)
+        raise TypeError(terr_msg)
 
-    elen = 0
-    errs_msg = "Each row of the matrix must have the same size"
+    _len = 0
+    serr_msg = "Each row of the matrix must have the same size"
 
-    for i in matrix:
-        if not i or not isinstance(i, list):
-            raise TypeError(errs_msg)
+    for elems in matrix:
+        if not elems or not isinstance(elems, list):
+            raise TypeError(terr_msg)
 
-        if elen != 0 and len(i) != elen:
-            raise TypeError(errs_msg)
+        if _len != 0 and len(elems) != _len:
+            raise TypeError(serr_msg)
 
-        for j in i:
-            if not type(j) in (int, float):
-                raise TypeError(errs_msg)
+        for num in elems:
+            if not type(num) in (int, float):
+                raise TypeError(terr_msg)
 
-        elen = len(i)
+        _len = len(elems)
 
-    mtx = list(map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix))
-    return (mtx)
+    r = list(map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix))
+    return (r)
