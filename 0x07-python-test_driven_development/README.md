@@ -20,8 +20,6 @@
 * All your test files should be text files (extension: `.txt`)
 * All your tests should be executed by using this command: `python3 -m doctest ./tests/*`
 * All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
-* All your functions should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'`)
-* A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
 * We strongly encourage you to work together on test cases, so that you don’t miss any edge case – The Checker is checking for tests!
 ## Tasks
 [0. Integers addition](./0-add_integer.py) [0-add_integer.txt](./tests/0-add_integer.txt)
@@ -336,5 +334,30 @@ guillaume@ubuntu:~/0x07$ ./100-main.py
 guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/100-matrix_mul.txt | tail -2
 6 passed and 0 failed.
 Test passed.
+guillaume@ubuntu:~/0x07$
+```
+
+[7. Lazy matrix multiplication](./101-lazy_matrix_mul.py) [101-lazy_matrix_mul.txt](./tests/101-lazy_matrix_mul.txt)
+
+Write a function that multiplies 2 matrices by using the module [NumPy](https://numpy.org/)
+
+To install it: `pip3 install numpy==1.15.0`
+
+* Prototype: `def lazy_matrix_mul(m_a, m_b):`
+* Test cases should be the same as `100-matrix_mul` but with new exception type/message
+
+```
+guillaume@ubuntu:~/0x07$ cat 101-main.py
+#!/usr/bin/python3
+lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+
+guillaume@ubuntu:~/0x07$ ./101-main.py 
+[[ 7 10]
+ [15 22]]
+[[13 16]]
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/101-lazy_matrix_mul.txt 
 guillaume@ubuntu:~/0x07$
 ```
