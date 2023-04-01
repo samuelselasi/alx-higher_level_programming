@@ -1,11 +1,11 @@
 # 5-text_indentation.txt
 # python3 -m doctest -v ./tests/5-text_indentation.txt
 
-Importing function from the module:
+Importing function from module:
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Printing a large message
+Printing long strings
 
     >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres""")
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -36,18 +36,18 @@ Printing a large message
     <BLANKLINE>
     Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
-Printing a word with spaces around
+Printing word with spaces
 
-    >>> text_indentation("    Holberton    ")
-    Holberton
+    >>> text_indentation("    Hannibal    ")
+    Hannibal
 
-Printing a word with a special character at the end
+Printing word with spaces and special chars
 
-    >>> text_indentation("    Hello    .")
-    Hello.
+    >>> text_indentation("    Mejbri    .")
+    Mejbri.
     <BLANKLINE>
 
-Printing all special characters
+Printing special chars
 
     >>> text_indentation(".?:")
     .
@@ -57,46 +57,46 @@ Printing all special characters
     :
     <BLANKLINE>
 
-Passing Node as a text
+Passing None
 
     >>> text_indentation(None)
     Traceback (most recent call last):
     	      ...
     TypeError: text must be a string
 
-Passing a number as a text
+Passing numbers
 
-    >>> text_indentation(10)
+    >>> text_indentation(13)
     Traceback (most recent call last):
     	      ...
     TypeError: text must be a string
 
-Printing a text with special characters
+Printing strings with special chars
 
-    >>> text_indentation("Betty: Holberton? Python is. cool   ")
-    Betty:
+    >>> text_indentation("Hannibal: Best? Tunis star. maybe   ")
+    Hannibal:
     <BLANKLINE>
-    Holberton?
+    Best?
     <BLANKLINE>
-    Python is.
+    Tunis star.
     <BLANKLINE>
-    cool
+    maybe
 
-Printing a char number
+Printing int as char
 
-    >>> text_indentation('2')
-    2
+    >>> text_indentation('13')
+    13
 
-Passing an empty string
+Passing empty string
 
     >>> text_indentation('    ')
 
-Passing a new line as a text
+Passing new line character \n
 
     >>> text_indentation('\n')
     <BLANKLINE>
 
-Passing a special character and some special characters
+Passing system special chars
 
     >>> text_indentation('\n.\n?\n:')
     <BLANKLINE>
@@ -109,23 +109,23 @@ Passing a special character and some special characters
     :
     <BLANKLINE>
 
-Passing a text with spaces and one new line
+Passing text with spaces and new line char
 
     >>> text_indentation("   \n")
     <BLANKLINE>
 
-Passing a text with spaces and one new line 2
+Passing text with spaces and new line char in the middle
 
    >>> text_indentation("   \n   ")
    <BLANKLINE>
 
-Passing a text with spaces and one new line 3
+Passing text with spaces and new line at beginning
 
    >>> text_indentation("\n   ")
    <BLANKLINE>
 
 Test other data types:
-     >>> text_indentation(-1)
+     >>> text_indentation(-90)
      Traceback (most recent call last):
      ...
      TypeError: text must be a string
