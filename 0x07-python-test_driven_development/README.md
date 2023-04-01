@@ -364,6 +364,8 @@ guillaume@ubuntu:~/0x07$
 
 [8. CPython #3: Python Strings](./102-python.c)
 
+![2c4f2b92514745519f833afdf5bc5f3eaff8c6ca](https://user-images.githubusercontent.com/85158665/229314173-d4c574ca-a78c-434a-8fa2-8d17fbd0b4a6.gif)
+
 Create a function that prints Python strings.
 
 * Prototype: `void print_python_string(PyObject *p);`
