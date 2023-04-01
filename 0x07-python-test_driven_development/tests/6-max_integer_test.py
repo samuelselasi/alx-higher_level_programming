@@ -8,47 +8,47 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """Class that defines tests for maximum integer in list"""
 
-    def test_max_integer(self):
+    def test_unsigned(self):
         """Function to test for unsigned integers in normal list"""
 
         self.assertEqual(max_integer([13, -4, 105, 9]), 105)
 
-    def test_empty_list(self):
+    def test_empty(self):
         """Function to test an empty list"""
 
         self.assertEqual(max_integer([]), None)
 
-    def test_repeated_number(self):
+    def test_repeated(self):
         """Function to test repeated integers"""
 
         self.assertEqual(max_integer([47, 2023, 2023]), 2023)
 
-    def test_float_numbers(self):
+    def test_float(self):
         """Function to test floating point values"""
 
         self.assertEqual(max_integer([-1.5, -2.5]), -1.5)
 
-    def test_max_operated_integer(self):
+    def test_operators(self):
         """Function to test lists with operations in them"""
 
         self.assertEqual(max_integer([-3, -6 * -6, 12, -1]), 36)
 
-    def test_neg_numbers(self):
+    def test_negative(self):
         """Function to test negative numbers in list"""
 
         self.assertEqual(max_integer([-13, -45, -21, -1]), -1)
 
-    def test_max_at_beginning(self):
+    def test_max_first(self):
         """Function to test list with max num in front"""
 
         self.assertEqual(max_integer([2023, 18, 1, 5, 9]), 2023)
 
-    def test_zero_number(self):
+    def test_zeros(self):
         """Function to test list with zros"""
 
         self.assertEqual(max_integer([0, 0, 0, 0]), 0)
 
-    def test_big_list(self):
+    def test_huge(self):
         """Function to test a very big list"""
 
         self.assertEqual(max_integer([
@@ -58,24 +58,24 @@ class TestMaxInteger(unittest.TestCase):
             2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037,
             2038, 2039, 2040, 2041]), 2041)
 
-    def test_list_with_loop(self):
+    def test_iteration(self):
         """Function to test with iteration through list"""
 
         my_list = [1, 2, 3, 4, 5]
         self.assertEqual(max_integer([i * 6 for i in my_list]), 30)
 
-    def test_one_number_in_a_list(self):
+    def test_single_elem(self):
         """Function to test list with only one element"""
 
         self.assertEqual(max_integer([13]), 13)
 
-    def test_string_number_in_a_list(self):
+    def test_string(self):
         """Function to test list with strings"""
 
         with self.assertRaises(TypeError):
             max_integer([0, '13'])
 
-    def test_tuple_in_a_list(self):
+    def test_tuple(self):
         """Function to test list with tuple element"""
 
         with self.assertRaises(TypeError):
