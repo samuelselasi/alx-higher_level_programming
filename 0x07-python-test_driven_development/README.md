@@ -1,5 +1,8 @@
 # 0x07. Python - Test-driven development
 ### `Python` `UnitTests` `TDD`
+
+![giphy-4](https://user-images.githubusercontent.com/85158665/229306111-9719fa70-79ce-4c42-9f19-0420d3e4a7f8.gif)
+
 ## Requirements
 ### Python Scripts
 * Allowed editors: `vi`, `vim`, `emacs`
