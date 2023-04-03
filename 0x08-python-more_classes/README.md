@@ -570,7 +570,8 @@ guillaume@ubuntu:~/0x08$
 [10. N queens](./101-nqueens.py)
 
 ![Judit-photo1_602x433 (1)](https://user-images.githubusercontent.com/85158665/229635564-298a4543-b7b5-4893-b2fb-c1f48f76df2a.jpg)
-[^*]: Chess grandmaster [Judit Polgár](https://en.wikipedia.org/wiki/Judit_Polg%C3%A1r), the strongest female chess player of all time
+
+######Chess grandmaster [Judit Polgár](https://en.wikipedia.org/wiki/Judit_Polg%C3%A1r), the strongest female chess player of all time
 
 The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. Write a program that solves the N queens problem.
 
