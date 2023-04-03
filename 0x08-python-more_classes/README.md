@@ -1,5 +1,5 @@
 # 0x08. Python - More Classes and Objects
-### Python'' 'OOP'
+### `Python` `OOP`
 ## Resources
 **Read or watch**:
 
