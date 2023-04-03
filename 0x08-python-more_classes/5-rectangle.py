@@ -89,6 +89,6 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Function that defines an instance method to delete rectangle attributes"""
+        """Function that defines instance method to delete rectangle"""
 
         print("Bye rectangle...")
