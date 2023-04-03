@@ -39,6 +39,7 @@ guillaume@ubuntu:~/0x08$ ./0-main.py
 {}
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [1. Real definition of a rectangle](./1-rectangle.py)
 
@@ -73,6 +74,7 @@ guillaume@ubuntu:~/0x08$ ./1-main.py
 {'_Rectangle__height': 3, '_Rectangle__width': 10}
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [2. Area and Perimeter](./2-rectangle.py)
 
@@ -113,6 +115,7 @@ Area: 8 - Perimeter: 12
 Area: 30 - Perimeter: 26
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [3. String representation](./3-rectangle.py)
 
@@ -167,6 +170,8 @@ Area: 8 - Perimeter: 12
 <3-rectangle.Rectangle object at 0x7f92a75a2eb8>
 guillaume@ubuntu:~/0x08$
 ```
+**Object address can be different**
+**No test cases needed**
 
 [4. Eval is magic](./4-rectangle.py)
 
@@ -252,6 +257,7 @@ False
 True
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [5. Detect instance deletion](./5-rectangle.py)
 
@@ -297,6 +303,7 @@ Bye rectangle...
 [NameError] name 'my_rectangle' is not defined
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [6. How many instances](./6-rectangle.py)
 
@@ -346,6 +353,7 @@ Bye rectangle...
 0 instances of Rectangle
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [7. Change representation](./7-rectangle.py)
 
@@ -435,6 +443,7 @@ Bye rectangle...
 Bye rectangle...
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
 
 [8. Compare rectangles](./8-rectangle.py)
 
@@ -499,3 +508,61 @@ Bye rectangle...
 Bye rectangle...
 guillaume@ubuntu:~/0x08$
 ```
+**No test cases needed**
+
+[9. A square is a rectangle](./9-rectangle.py)
+
+Write a class `Rectangle` that defines a rectangle by: (based on `0-rectangle.py`)
+
+* Private instance attribute: `width`
+	* property `def width(self):` to retrieve it
+	* property setter `def width(self, value):` to set it:
+		* `width` must be an integer, otherwise raise a `TypeError` exception with the message `width must be an integer`
+		* if width is less than `0`, raise a `ValueError` exception with the message `width must be >= 0`
+* Private instance attribute: `height`
+	* property `def height(self):` to retrieve it
+	* property setter `def height(self, value):` to set it:
+		* `height` must be an integer, otherwise raise a `TypeError` exception with the message `height must be an integer`
+		* if `height` is less than `0`, raise a `ValueError` exception with the message `height must be >= 0`
+* Public class attribute `number_of_instances:`
+	* Initialized to `0`
+	* Incremented during each new instance instantiation
+	* Decremented during each instance deletion
+* Public class attribute `print_symbol:`
+	* Initialized to `#`
+	* Used as symbol for string representation
+	* Can be any type
+* Instantiation with optional `width` and `height`: `def __init__(self, width=0, height=0):`
+* Public instance method: `def area(self):` that returns the rectangle area
+* Public instance method: `def perimeter(self):` that returns the rectangle perimeter:
+	* if `width` or `height` is equal to `0`, perimeter is equal to `0`
+* `print()` and `str()` should print the rectangle with the character `#`: (see example below)
+	* if `width` or `height` is equal to `0`, return an empty string
+* `repr()` should return a string representation of the rectangle to be able to recreate a new instance by using `eval()` (see example below)
+* Print the message `Bye rectangle...` (`...` being 3 dots not ellipsis) when an instance of `Rectangle` is deleted
+* Static method `def bigger_or_equal(rect_1, rect_2):` that returns the biggest rectangle based on the area
+	* `rect_1` must be an instance of `Rectangle`, otherwise raise a `TypeError` exception with the message `rect_1 must be an instance of Rectangle`
+	* `rect_2` must be an instance of `Rectangle`, otherwise raise a `TypeError` exception with the message `rect_2 must be an instance of Rectangle`
+	* Returns `rect_1` if both have the same area value
+* Class method `def square(cls, size=0):` that returns a new `Rectangle` instance with `width == height == size`
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x08$ cat 9-main.py
+#!/usr/bin/python3
+Rectangle = __import__('9-rectangle').Rectangle
+
+my_square = Rectangle.square(5)
+print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+print(my_square)
+
+guillaume@ubuntu:~/0x08$ ./9-main.py
+Area: 25 - Perimeter: 20
+#####
+#####
+#####
+#####
+#####
+Bye rectangle...
+guillaume@ubuntu:~/0x08$
+```
+**No test cases needed**
