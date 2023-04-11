@@ -372,5 +372,27 @@ guillaume@ubuntu:~/0x0A$
 ```
 **No test cases needed**
 
-[](./)
+[12. My integer](./100-my_int.py)
+
+Write a class `MyInt` that inherits from `int`:
+
+* `MyInt` is a rebel. `MyInt` has `==` and `!=` operators inverted
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x0A$ cat 100-main.py
+#!/usr/bin/python3
+MyInt = __import__('100-my_int').MyInt
+
+my_i = MyInt(3)
+print(my_i)
+print(my_i == 3)
+print(my_i != 3)
+
+guillaume@ubuntu:~/0x0A$ ./100-main.py
+3
+False
+True
+guillaume@ubuntu:~/0x0A$
+```
+**No test cases needed**
 
