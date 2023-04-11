@@ -345,3 +345,30 @@ guillaume@ubuntu:~/0x0A$ ./10-main.py
 guillaume@ubuntu:~/0x0A$
 ```
 **No test cases needed**
+
+[11. Square #2](./11-square.py)
+
+Write a class `Square` that inherits from `Rectangle` (`9-rectangle.py`). (task based on `10-square.py`).
+
+* Instantiation with `size`: `def __init__(self, size):`:
+	* `size` must be private. No getter or setter
+	* `size` must be a positive integer, validated by `integer_validator`
+* the `area()` method must be implemented
+* `print()` should print, and `str()` should return, the square description: `[Square] <width>/<height>`
+```
+guillaume@ubuntu:~/0x0A$ cat 11-main.py
+#!/usr/bin/python3
+Square = __import__('11-square').Square
+
+s = Square(13)
+
+print(s)
+print(s.area())
+
+guillaume@ubuntu:~/0x0A$ ./11-main.py
+[Square] 13/13
+169
+guillaume@ubuntu:~/0x0A$
+```
+**No test cases needed**
+
