@@ -191,3 +191,27 @@ guillaume@ubuntu:~/0x0A$ ./5-main.py
 guillaume@ubuntu:~/0x0A$
 ```
 **No test cases needed**
+
+[6. Improve Geometry](./6-base_geometry.py)
+
+Write a class `BaseGeometry` (based on `5-base_geometry.py`).
+
+* Public instance method: `def area(self):` that raises an `Exception` with the message `area() is not implemented`
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x0A$ cat 6-main.py
+#!/usr/bin/python3
+BaseGeometry = __import__('6-base_geometry').BaseGeometry
+
+bg = BaseGeometry()
+
+try:
+    print(bg.area())
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+guillaume@ubuntu:~/0x0A$ ./6-main.py
+[Exception] area() is not implemented
+guillaume@ubuntu:~/0x0A$
+```
+**No test cases needed**
