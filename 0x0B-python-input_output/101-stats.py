@@ -7,7 +7,7 @@ import sys
 if __name__ == "__main__":
 
     def status_codes(size, status_codes):
-        """A function that prints status codes after CTRL + C"""
+        """A function that prints status codes till CTRL + C"""
 
         print("File size: {}".format(size))
         for key in sorted(status_codes):
