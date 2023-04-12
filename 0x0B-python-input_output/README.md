@@ -438,3 +438,44 @@ guillaume@ubuntu:~/0x0B$ ./8-main_2.py
 guillaume@ubuntu:~/0x0B$
 ```
 **No test cases needed**
+
+[9. Student to JSON](./9-student.py)
+
+Write a class `Student` that defines a student by:
+
+* Public instance attributes:
+	* `first_name`
+	* `last_name`
+	* `age`
+* Instantiation with `first_name`, `last_name` and `age`: `def __init__(self, first_name, last_name, age):`
+* Public method `def to_json(self):` that retrieves a dictionary representation of a `Student` instance (same as `8-class_to_json.py`)
+* You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x0B$ cat 9-main.py 
+#!/usr/bin/python3
+Student = __import__('9-student').Student
+
+students = [Student("John", "Doe", 23), Student("Bob", "Dylan", 27)]
+
+for student in students:
+    j_student = student.to_json()
+    print(type(j_student))
+    print(j_student['first_name'])
+    print(type(j_student['first_name']))
+    print(j_student['age'])
+    print(type(j_student['age']))
+
+guillaume@ubuntu:~/0x0B$ ./9-main.py 
+<class 'dict'>
+John
+<class 'str'>
+23
+<class 'int'>
+<class 'dict'>
+Bob
+<class 'str'>
+27
+<class 'int'>
+guillaume@ubuntu:~/0x0B$
+```
+**No test cases needed**
