@@ -43,6 +43,7 @@ Enjoy!
 8. [0x08-python-more_classes](./0x08-python-more_classes)
 9. [0x09-python-everything_is_object](./0x09-python-everything_is_object)
 10. [0x0A-python-inheritance](./0x0A-python-inheritance)
+11. [0x0B-python-input_output](./0x0B-python-input_output)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
