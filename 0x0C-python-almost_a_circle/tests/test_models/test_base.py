@@ -666,6 +666,7 @@ class SaveModelToCSV(unittest.TestCase):
         with self.assertRaises(TypeError):
             S.save_to_file_csv([], 1)
 
+
 # Class #8
 class LoadFromCSV(unittest.TestCase):
     """A class that loads methods of Base models from a CSV file"""
