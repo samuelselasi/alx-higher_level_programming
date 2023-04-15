@@ -4,14 +4,14 @@
 # Run: python3 -m unittest discover tests
 
 """
-CLass #1: ModelInstances
-Class #2: MOdelToJSON
-Class #3: MOdelFromJSON
-Class #4: SaveModelToFile
-Class #5: CreateMOdel
-Class #6: LoadFromFile
-Class #7: SaveModelToCSV
-Class #8: LoadFRomCSV
+CLass #0: ModelInstances
+Class #1: MOdelToJSON
+Class #2: MOdelFromJSON
+Class #3: SaveModelToFile
+Class #4: CreateMOdel
+Class #5: LoadFromFile
+Class #6: SaveModelToCSV
+Class #7: LoadFRomCSV
 """
 
 import os
@@ -21,7 +21,7 @@ from models.square import Square as S
 from models.rectangle import Rectangle as R
 
 
-# Class #1
+# Class #0
 class ModelInstances(unittest.TestCase):
     """A class to test instances of Base arguments"""
 
@@ -155,7 +155,7 @@ class ModelInstances(unittest.TestCase):
             B(1, 2)
 
 
-# Class #2
+# Class #1
 class ModelToJSON(unittest.TestCase):
     """A class that tests modules from other types to JSON strings"""
 
@@ -222,7 +222,7 @@ class ModelToJSON(unittest.TestCase):
             B.to_json_string([], 13)
 
 
-# Class #3
+# Class #2
 class ModelFromJSON(unittest.TestCase):
     """A class that tests modules from JSON strings to other types"""
 
@@ -295,7 +295,7 @@ class ModelFromJSON(unittest.TestCase):
             B.from_json_string([], 13)
 
 
-# Class #4
+# Class #3
 class SaveModelToFile(unittest.TestCase):
     """A class to save Base models to a file"""
 
@@ -400,7 +400,7 @@ class SaveModelToFile(unittest.TestCase):
             S.save_to_file([], 13)
 
 
-# Class #5
+# Class #4
 class CreateModel(unittest.TestCase):
     """A class that defines creation of base models"""
 
@@ -469,7 +469,7 @@ class CreateModel(unittest.TestCase):
         self.assertNotEqual(s1, s2)
 
 
-# Class #6
+# Class #5
 class LoadFromFile(unittest.TestCase):
     """A class that loads methods of Base models from a file"""
 
@@ -562,7 +562,7 @@ class LoadFromFile(unittest.TestCase):
             B.load_from_file([], 1)
 
 
-# Class #7
+# Class #6
 class SaveModelToCSV(unittest.TestCase):
     """A class that saves Base models to CSV files"""
 
@@ -667,7 +667,7 @@ class SaveModelToCSV(unittest.TestCase):
             S.save_to_file_csv([], 1)
 
 
-# Class #8
+# Class #7
 class LoadFromCSV(unittest.TestCase):
     """A class that loads methods of Base models from a CSV file"""
 
