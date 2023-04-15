@@ -21,7 +21,7 @@ import io
 import sys
 import unittest
 from models.base import Base as B
-from models.rectangle import Square as S
+from models.square import Square as S
 
 
 # Class #0
