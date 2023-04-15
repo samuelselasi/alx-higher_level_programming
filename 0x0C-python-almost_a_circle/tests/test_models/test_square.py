@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # 0. If it's not tested it doesn't work
-# Sun: python3 -m unittest discover tests
+# Run: python3 -m unittest discover tests
 
 """
 CLass #0: SquareInstances
