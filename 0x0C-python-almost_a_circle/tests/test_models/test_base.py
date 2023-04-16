@@ -3,17 +3,6 @@
 # 0. If it's not tested it doesn't work
 # Run: python3 -m unittest discover tests
 
-"""
-CLass #0: ModelInstances
-Class #1: ModelToJSON
-Class #2: ModelFromJSON
-Class #3: SaveModelToFile
-Class #4: CreateMOdel
-Class #5: LoadFromFile
-Class #6: SaveModelToCSV
-Class #7: LoadFRomCSV
-"""
-
 import os
 import unittest
 from models.base import Base
