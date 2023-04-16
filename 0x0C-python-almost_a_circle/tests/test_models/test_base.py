@@ -21,6 +21,7 @@ from models.square import Square
 from models.rectangle import Rectangle
 
 
+# Class #0
 class ModelInstances(unittest.TestCase):
     """A class to test instances of Base arguments"""
 
@@ -108,6 +109,7 @@ class ModelInstances(unittest.TestCase):
             Base(1, 2)
 
 
+# Class #1
 class ModelToJSON(unittest.TestCase):
     """A class that tests modules from other types to JSON strings"""
 
@@ -154,6 +156,7 @@ class ModelToJSON(unittest.TestCase):
             Base.to_json_string([], 1)
 
 
+# Class #2
 class SaveModelToFile(unittest.TestCase):
     """A class to save Base models to a file"""
 
@@ -232,6 +235,7 @@ class SaveModelToFile(unittest.TestCase):
             Square.save_to_file([], 1)
 
 
+# Class #3
 class ModelFromJSON(unittest.TestCase):
     """A class that tests modules from JSON strings to other types"""
 
@@ -286,6 +290,7 @@ class ModelFromJSON(unittest.TestCase):
             Base.from_json_string([], 1)
 
 
+# Class #4
 class CreateModel(unittest.TestCase):
     """A class that defines creation of base models"""
 
@@ -338,6 +343,7 @@ class CreateModel(unittest.TestCase):
         self.assertNotEqual(s1, s2)
 
 
+# Class #5
 class LoadFromFile(unittest.TestCase):
     """A class that loads methods of Base models from a file"""
 
@@ -404,6 +410,7 @@ class LoadFromFile(unittest.TestCase):
             Base.load_from_file([], 1)
 
 
+# Class #6
 class SaveModelToFile_csv(unittest.TestCase):
     """A class that saves Base models to CSV files"""
 
@@ -482,6 +489,7 @@ class SaveModelToFile_csv(unittest.TestCase):
             Square.save_to_file_csv([], 1)
 
 
+# Class #7
 class LoadFromFile_csv(unittest.TestCase):
     """A class that loads methods of Base models from a CSV file"""
 
