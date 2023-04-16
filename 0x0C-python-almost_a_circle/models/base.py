@@ -128,11 +128,11 @@ class Base:
         """A function that draws Rectangles & Squares using turtle module."""
 
         t = turtle.Turtle()
-        t.screen.bgcolor("#b7312c")
+        t.screen.bgcolor("#fffff")
         t.pensize(3)
         t.shape("turtle")
 
-        t.color("#ffffff")
+        t.color("#000000")
         for rect in list_rectangles:
             t.showturtle()
             t.up()
@@ -146,7 +146,7 @@ class Base:
                 t.left(90)
             t.hideturtle()
 
-        t.color("#b5e3d8")
+        t.color("#ffff00")
         for sq in list_squares:
             t.showturtle()
             t.up()
