@@ -3,20 +3,6 @@
 # 0. If it's not tested it doesn't work
 # Run: python3 -m unittest discover tests
 
-"""
-CLass #0: RectangleInstances
-Class #1: WidthInstances
-Class #2: HeightIstances
-Class #3: XInstances
-Class #4: YINstances
-Class #5: RectangleInitOrder
-Class #6: RectangleArea
-Class #7: DisplayMethodsR
-Class #8: RectangleArgs
-Class #9: RectangleKwargs
-Class #10: RectangleTodict
-"""
-
 import io
 import sys
 import unittest
