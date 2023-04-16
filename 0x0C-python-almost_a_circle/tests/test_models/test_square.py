@@ -5,1153 +5,661 @@
 
 """
 CLass #0: SquareInstances
-Class #1: WidthInstancesS
-Class #2: HeightIstancesS
-Class #3: XInstancesS
-Class #4: YInstancesS
-Class #5: SquareInitOrder
-Class #6: SquareArea
-Class #7: DisplayMethodsS
-Class #8: SquareArgs
-Class #9: SquareKwargs
-Class #10: SquareTodict
+Class #1: SizeInstances
+Class #2: XInstances
+Class #3: YInstances
+Class #4: SquareInitOrder
+Class #5: SquareArea
+Class #6: DisplayMethodsS
+Class #7: SquareArgs
+Class #8: SquareKwargs
+Class #9: SquareTodict
 """
 
 import io
 import sys
 import unittest
-from models.base import Base as B
-from models.square import Square as S
+from models.base import Base
+from models.square import Square
 
 
 # Class #0
 class SquareInstances(unittest.TestCase):
     """A class that defines instances of the Square model"""
 
-    def PassBaseSquare(self):
-        """A function that checks if square if of a base model"""
+    def test_is_base(self):
+        self.assertIsInstance(Square(10), Base)
 
-        self.assertIsInstance(S(10, 2), B)
+    def test_is_rectangle(self):
+        self.assertIsInstance(Square(10), Square)
 
-    def PassNoArgsS(self):
-        """A function that passes no arguments to rectangle class"""
+    def test_no_args(self):
+        with self.assertRaises(TypeError):
+            Square()
 
-        with self.assertSaises(TypeError):
-            S()
-
-    def PassOneArgS(self):
-        """A function that passes only one argument"""
-
-        with self.assertSaises(TypeError):
-            S(13)
-
-    def PassTwoArgsS(self):
-        """A function that passes 2 arguments"""
-
-        s1 = S(10, 2)
-        s2 = S(2, 10)
+    def test_one_arg(self):
+        s1 = Square(10)
+        s2 = Square(11)
         self.assertEqual(s1.id, s2.id - 1)
 
-    def PassrThreeArgsS(self):
-        """A function that passes 3 arguments"""
-
-        s1 = S(2, 2, 4)
-        s2 = S(4, 4, 2)
+    def test_two_args(self):
+        s1 = Square(10, 2)
+        s2 = Square(2, 10)
         self.assertEqual(s1.id, s2.id - 1)
 
-    def PassFourArgsS(self):
-        """A function that passes 4 arguments"""
-
-        s1 = S(1, 2, 3, 4)
-        s2 = S(4, 3, 2, 1)
+    def test_three_args(self):
+        s1 = Square(10, 2, 2)
+        s2 = Square(2, 2, 10)
         self.assertEqual(s1.id, s2.id - 1)
 
-    def PassFiveArgsS(self):
-        """A function that passes 5 arguments"""
+    def test_four_args(self):
+        self.assertEqual(7, Square(10, 2, 2, 7).id)
 
-        self.assertEqual(7, S(10, 2, 0, 0, 7).id)
+    def test_more_than_four_args(self):
+        with self.assertRaises(TypeError):
+            Square(1, 2, 3, 4, 5)
 
-    def PassOverFiveArgsS(self):
-        """A function that passes more than 5 arguments"""
+    def test_size_private(self):
+        with self.assertRaises(AttributeError):
+            print(Square(10, 2, 3, 4).__size)
 
-        with self.assertSaises(TypeError):
-            S(1, 2, 3, 4, 5, 6)
+    def test_size_getter(self):
+        self.assertEqual(5, Square(5, 2, 3, 9).size)
 
-    def PassPrivateWidthS(self):
-        """A function that passes private width instances"""
+    def test_size_setter(self):
+        s = Square(4, 1, 9, 2)
+        s.size = 8
+        self.assertEqual(8, s.size)
 
-        with self.assertSaises(AttributeError):
-            print(S(5, 5, 0, 0, 1).__width)
+    def test_width_getter(self):
+        s = Square(4, 1, 9, 2)
+        s.size = 8
+        self.assertEqual(8, s.width)
 
-    def PassPrivateHeightS(self):
-        """ A function that passes private height instances"""
+    def test_height_getter(self):
+        s = Square(4, 1, 9, 2)
+        s.size = 8
+        self.assertEqual(8, s.height)
 
-        with self.assertSaises(AttributeError):
-            print(S(5, 5, 0, 0, 1).__height)
+    def test_x_getter(self):
+        self.assertEqual(0, Square(10).x)
 
-    def PassPrivateXS(self):
-        """A function that passes private x instances"""
-
-        with self.assertSaises(AttributeError):
-            print(S(5, 5, 0, 0, 1).__x)
-
-    def PassPrivateYS(self):
-        """A function that passes private width instances"""
-
-        with self.assertSaises(AttributeError):
-            print(S(5, 5, 0, 0, 1).__y)
-
-    def PassWidthGetterS(self):
-        """A function that passes width with @getter"""
-
-        s = S(5, 7, 7, 5, 1)
-        self.assertEqual(5, s.width)
-
-    def PassWidthSetterS(self):
-        """A function that passes width with @setter"""
-
-        s = S(5, 7, 7, 5, 1)
-        s.width = 10
-        self.assertEqual(10, s.width)
-
-    def PassHeightGetterS(self):
-        """A function that passes height with @getter"""
-
-        s = S(5, 7, 7, 5, 1)
-        self.assertEqual(7, s.height)
-
-    def PassHeightSetterS(self):
-        """A function that passes height with @setter"""
-
-        s = S(5, 7, 7, 5, 1)
-        s.height = 10
-        self.assertEqual(10, s.height)
-
-    def PassXGetterS(self):
-        """A function that passes x with @getter"""
-
-        s = S(5, 7, 7, 5, 1)
-        self.assertEqual(7, s.x)
-
-    def PassXSetterS(self):
-        """A function that passes x with @setter"""
-
-        s = S(5, 7, 7, 5, 1)
-        s.x = 10
-        self.assertEqual(10, s.x)
-
-    def PassYGetterS(self):
-        """A function that passes y with @getter"""
-
-        s = S(5, 7, 7, 5, 1)
-        self.assertEqual(5, s.y)
-
-    def PassYSetterS(self):
-        """A function that passes y with @setter"""
-
-        s = S(5, 7, 7, 5, 1)
-        s.y = 10
-        self.assertEqual(10, s.y)
+    def test_y_getter(self):
+        self.assertEqual(0, Square(10).y)
 
 
 # Class #1
-class WidthInstancesS(unittest.TestCase):
-    """A class that defines instances for width attribute"""
+class SizeInstances(unittest.TestCase):
+    """A class that defines instances for size attribute"""
 
-    def PassNoneWS(self):
-        """A function that passes None as width argument"""
-
+    def test_None_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(None, 13)
+            Square(None)
 
-    def PassStringWS(self):
-        """A function that passes a string as width argument"""
-
+    def test_str_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S("hannibal", 13)
+            Square("invalid")
 
-    def PassFloatWS(self):
-        """A function that passes a floating point as width argument"""
-
+    def test_float_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(1.3, 3)
+            Square(5.5)
 
-    def PassComplexWS(self):
-        """A function that passes a complex number as width argument"""
-
+    def test_complex_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(complex(5), 2)
+            Square(complex(5))
 
-    def PassDictWS(self):
-        """A function that passes a dictionary as width argument"""
-
+    def test_dict_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S({"a": 1, "b": 2}, 2)
+            Square({"a": 1, "b": 2}, 2)
 
-    def PassBooleanWS(self):
-        """A function that passes a boolean value as width argument"""
-
+    def test_bool_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(True, 2)
+            Square(True, 2, 3)
 
-    def PassListWS(self):
-        """A function that passes a list as width argument"""
-
+    def test_list_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S([1, 2, 3], 2)
+            Square([1, 2, 3])
 
-    def PassSetWS(self):
-        """A function that passes a set as width argument"""
-
+    def test_set_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S({1, 2, 3}, 2)
+            Square({1, 2, 3}, 2)
 
-    def PassTupleWS(self):
-        """A function that passes a tuple as width argument"""
-
+    def test_tuple_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S((1, 2, 3), 2)
+            Square((1, 2, 3), 2, 3)
 
-    def PassFrozenSetWS(self):
-        """A function that passes a frozenset as width argument"""
-
+    def test_frozenset_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(frozenset({1, 2, 3, 1}), 2)
+            Square(frozenset({1, 2, 3, 1}))
 
-    def PassSangeWS(self):
-        """A function that passes a range of numbers as width argument"""
-
+    def test_range_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(range(5), 2)
+            Square(range(5))
 
-    def PassByteWS(self):
-        """A function that passes bytes as width argument"""
-
+    def test_bytes_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(b'Python', 2)
+            Square(b'Python')
 
-    def PassByteArrayWS(self):
-        """A function that passes a butearray as width argument"""
-
+    def test_bytearray_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(bytearray(b'abcdefg'), 2)
+            Square(bytearray(b'abcdefg'))
 
-    def PassMemoryViewWS(self):
-        """A function that passes a mempryview as width argument"""
-
+    def test_memoryview_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(memoryview(b'abcedfg'), 2)
+            Square(memoryview(b'abcdefg'))
 
-    def PassInfWS(self):
-        """A function that passes inf as width argument"""
-
+    def test_inf_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(float('inf'), 2)
+            Square(float('inf'))
 
-    def PassNanWS(self):
-        """A function that passes nan as width argument"""
-
+    def test_nan_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S(float('nan'), 2)
+            Square(float('nan'))
 
-    def PassNegWS(self):
-        """A function that passes a negative number as width argument"""
-
+    # Test size values
+    def test_negative_size(self):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            S(-1, 2)
+            Square(-1, 2)
 
-    def PassZeroWS(self):
-        """A function that passes 0 as width argument"""
-
+    def test_zero_size(self):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            S(0, 2)
+            Square(0, 2)
 
 
 # Class #2
-class HeightInstancesS(unittest.TestCase):
-    """A class that defines instances for height attribute"""
+class XInstances(unittest.TestCase):
+    """A class that defines instances for x attribute"""
 
-    def PassNoneHS(self):
-        """A function that passes None as height argument"""
+    def test_None_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, None)
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(None, 13)
+    def test_str_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "invalid")
 
-    def PassStringHS(self):
-        """A function that passes a string as height argument"""
+    def test_float_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, 5.5)
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S("hannibal", 13)
+    def test_complex_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, complex(5))
 
-    def PassFloatHS(self):
-        """A function that passes a floating point as height argument"""
+    def test_dict_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, {"a": 1, "b": 2}, 2)
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(1.3, 3)
+    def test_bool_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, True)
 
-    def PassComplexHS(self):
-        """A function that passes a complex number as height argument"""
+    def test_list_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, [1, 2, 3])
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(complex(5), 2)
+    def test_set_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, {1, 2, 3})
 
-    def PassDictHS(self):
-        """A function that passes a dictionary as height argument"""
+    def test_tuple_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, (1, 2, 3))
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S({"a": 1, "b": 2}, 2)
+    def test_frozenset_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, frozenset({1, 2, 3, 1}))
 
-    def PassBooleanHS(self):
-        """A function that passes a boolean value as height argument"""
+    def test_range_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, range(5))
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(True, 2)
+    def test_bytes_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, b'Python')
 
-    def PassListHS(self):
-        """A function that passes a list as height argument"""
+    def test_bytearray_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, bytearray(b'abcdefg'))
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S([1, 2, 3], 2)
+    def test_memoryview_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, memoryview(b'abcedfg'))
 
-    def PassSetHS(self):
-        """A function that passes a set as height argument"""
+    def test_inf_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, float('inf'), 2)
 
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S({1, 2, 3}, 2)
+    def test_nan_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, float('nan'), 2)
 
-    def PassTupleHS(self):
-        """A function that passes a tuple as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S((1, 2, 3), 2)
-
-    def PassFrozenSetHS(self):
-        """A function that passes a frozenset as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(frozenset({1, 2, 3, 1}), 2)
-
-    def PassSangeHS(self):
-        """A function that passes a range of numbers as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(range(5), 2)
-
-    def PassByteHS(self):
-        """A function that passes bytes as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(b'Python', 2)
-
-    def PassByteArrayHS(self):
-        """A function that passes a butearray as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(bytearray(b'abcdefg'), 2)
-
-    def PassMemoryViewHS(self):
-        """A function that passes a mempryview as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(memoryview(b'abcedfg'), 2)
-
-    def PassInfHS(self):
-        """A function that passes inf as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(float('inf'), 2)
-
-    def PassNanHS(self):
-        """A function that passes nan as height argument"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(float('nan'), 2)
-
-    def PassNegHS(self):
-        """A function that passes a negative number as height argument"""
-
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            S(-1, 2)
-
-    def PassZeroHS(self):
-        """A function that passes 0 as height argument"""
-
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            S(0, 2)
+    def test_negative_x(self):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(5, -1, 0)
 
 
 # Class #3
-class XInstancesS(unittest.TestCase):
-    """A class that defines instances for x attribute"""
+class YInstances(unittest.TestCase):
+    """A class that defines instances for y attribute"""
 
-    def PassNoneXS(self):
-        """A function that passes None as x argument"""
+    def test_None_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, None)
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(None, 13)
+    def test_str_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, "invalid")
 
-    def PassStringXS(self):
-        """A function that passes a string as x argument"""
+    def test_float_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, 5.5)
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S("hannibal", 13)
+    def test_complex_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, complex(5))
 
-    def PassFloatXS(self):
-        """A function that passes a floating point as x argument"""
+    def test_dict_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, {"a": 1, "b": 2})
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(1.3, 3)
+    def test_list_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, [1, 2, 3])
 
-    def PassComplexXS(self):
-        """A function that passes a complex number as x argument"""
+    def test_set_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, {1, 2, 3})
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(complex(5), 2)
+    def test_tuple_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, (1, 2, 3))
 
-    def PassDictXS(self):
-        """A function that passes a dictionary as x argument"""
+    def test_frozenset_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, frozenset({1, 2, 3, 1}))
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S({"a": 1, "b": 2}, 2)
+    def test_range_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, range(5))
 
-    def PassBooleanXS(self):
-        """A function that passes a boolean value as x argument"""
+    def test_bytes_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, b'Python')
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(True, 2)
+    def test_bytearray_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, bytearray(b'abcdefg'))
 
-    def PassListXS(self):
-        """A function that passes a list as x argument"""
+    def test_memoryview_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, memoryview(b'abcedfg'))
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S([1, 2, 3], 2)
+    def test_inf_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, float('inf'))
 
-    def PassSetXS(self):
-        """A function that passes a set as x argument"""
+    def test_nan_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 1, float('nan'))
 
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S({1, 2, 3}, 2)
-
-    def PassTupleXS(self):
-        """A function that passes a tuple as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S((1, 2, 3), 2)
-
-    def PassFrozenSetXS(self):
-        """A function that passes a frozenset as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(frozenset({1, 2, 3, 1}), 2)
-
-    def PassSangeXS(self):
-        """A function that passes a range of numbers as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(range(5), 2)
-
-    def PassByteXS(self):
-        """A function that passes bytes as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(b'Python', 2)
-
-    def PassByteArrayXS(self):
-        """A function that passes a butearray as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(bytearray(b'abcdefg'), 2)
-
-    def PassMemoryViewXS(self):
-        """A function that passes a mempryview as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(memoryview(b'abcedfg'), 2)
-
-    def PassInfXS(self):
-        """A function that passes inf as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(float('inf'), 2)
-
-    def PassNanXS(self):
-        """A function that passes nan as x argument"""
-
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(float('nan'), 2)
-
-    def PassNegXS(self):
-        """A function that passes a negative number as x argument"""
-
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
-            S(-1, 2)
-
-    def PassZeroXS(self):
-        """A function that passes 0 as x argument"""
-
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
-            S(0, 2)
+    def test_negative_y(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(3, 0, -1)
 
 
 # Class #4
-class YInstancesS(unittest.TestCase):
-    """A class that defines instances for y attribute"""
-
-    def PassNoneYS(self):
-        """A function that passes None as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(None, 13)
-
-    def PassStringYS(self):
-        """A function that passes a string as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S("hannibal", 13)
-
-    def PassFloatYS(self):
-        """A function that passes a floating point as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(1.3, 3)
-
-    def PassComplexYS(self):
-        """A function that passes a complex number as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(complex(5), 2)
-
-    def PassDictYS(self):
-        """A function that passes a dictionary as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S({"a": 1, "b": 2}, 2)
-
-    def PassBooleanYS(self):
-        """A function that passes a boolean value as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(True, 2)
-
-    def PassListYS(self):
-        """A function that passes a list as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S([1, 2, 3], 2)
-
-    def PassSetYS(self):
-        """A function that passes a set as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S({1, 2, 3}, 2)
-
-    def PassTupleYS(self):
-        """A function that passes a tuple as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S((1, 2, 3), 2)
-
-    def PassFrozenSetYS(self):
-        """A function that passes a frozenset as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(frozenset({1, 2, 3, 1}), 2)
-
-    def PassSangeYS(self):
-        """A function that passes a range of numbers as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(range(5), 2)
-
-    def PassByteYS(self):
-        """A function that passes bytes as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(b'Python', 2)
-
-    def PassByteArrayYS(self):
-        """A function that passes a butearray as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(bytearray(b'abcdefg'), 2)
-
-    def PassMemoryViewYS(self):
-        """A function that passes a mempryview as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(memoryview(b'abcedfg'), 2)
-
-    def PassInfYS(self):
-        """A function that passes inf as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(float('inf'), 2)
-
-    def PassNanYS(self):
-        """A function that passes nan as y argument"""
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            S(float('nan'), 2)
-
-    def PassNegYS(self):
-        """A function that passes a negative number as y argument"""
-
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
-            S(-1, 2)
-
-    def PassZeroYS(self):
-        """A function that passes 0 as y argument"""
-
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
-            S(0, 2)
-
-
-# Class #5
 class SquareInitOrder(unittest.TestCase):
     """A class that defines the order of initializing rectabgle instances"""
 
-    def WidthFirstSh(self):
-        """A function that passes width before height"""
-
+    def test_size_before_x(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S("invalid width", "invalid height")
+            Square("invalid size", "invalid x")
 
-    def WidthFirstSx(self):
-        """A function that passes width before x"""
-
+    def test_size_before_y(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S("invalid width", 2, "invalid x")
+            Square("invalid size", 1, "invalid y")
 
-    def WidthFirstSy(self):
-        """A function that passes width before y"""
-
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            S("invalid width", 2, 3, "invalid y")
-
-    def HeightFirstSx(self):
-        """A function that passes height before x"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(1, "invalid height", "invalid x")
-
-    def HeightFirstSy(self):
-        """A function that passes height before y"""
-
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            S(1, "invalid height", 2, "invalid y")
-
-    def XFirstSy(self):
-        """A function that passes x before y"""
-
+    def test_x_before_y(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            S(1, 2, "invalid x", "invalid y")
+            Square(1, "invalid x", "invalid y")
 
 
-# Class #6
+# Class #5
 class SquareArea(unittest.TestCase):
     """A class that defines area of a rectangle"""
 
-    def SmallAreaS(self):
-        """A function that passes a small area"""
+    def test_area_small(self):
+        self.assertEqual(100, Square(10, 0, 0, 1).area())
 
-        s = S(10, 2, 0, 0, 0)
-        self.assertEqual(20, s.area())
+    def test_area_large(self):
+        s = Square(999999999999999999, 0, 0, 1)
+        self.assertEqual(999999999999999998000000000000000001, s.area())
 
-    def LargeAreaS(self):
-        """A function that passes a large area"""
+    def test_area_changed_attributes(self):
+        s = Square(2, 0, 0, 1)
+        s.size = 7
+        self.assertEqual(49, s.area())
 
-        s = S(999999999999999, 999999999999999999, 0, 0, 1)
-        self.assertEqual(999999999999998999000000000000001, s.area())
-
-    def ChangedAreaS(self):
-        """A function that pass changed attributes as area"""
-
-        s = S(2, 10, 1, 1, 1)
-        s.width = 7
-        s.height = 14
-        self.assertEqual(98, s.area())
-
-    def OneAreaS(self):
-        """A function that passes only 1 area"""
-
-        s = S(2, 10, 1, 1, 1)
-        with self.assertSaises(TypeError):
+    def test_area_one_arg(self):
+        s = Square(2, 10, 1, 1)
+        with self.assertRaises(TypeError):
             s.area(1)
 
 
-# Class #7
-class DisplayMethodsS(unittest.TestCase):
-    """A class that defines the print & display methons of a rectangle"""
+# Class #6
+class DisplayMethods(unittest.TestCase):
+    """A class that defines the print & display methons of a square"""
 
     @staticmethod
-    def CaptureStdout(rect, method):
-        """A function that defines attributes to capture rectangle display"""
+    def capture_stdout(sq, method):
+        """A function that defines attributes to capture square display"""
 
         capture = io.StringIO()
         sys.stdout = capture
         if method == "print":
-            print(rect)
+            print(sq)
 
         else:
-            rect.display()
+            sq.display()
 
         sys.stdout = sys.__stdout__
-        return (capture)
+        return capture
 
-    #  __str__ method
-    def PrintWidthHeightS(self):
-        """A function that prints a rectangle given w & h to stdout"""
-
-        s = S(4, 6)
-        capture = DisplayMethodsS.CaptureStdout(s, "print")
-        correct = "[Square] ({}) 0/0 - 4/6\n".format(s.id)
+    def test_str_method_print_size(self):
+        s = Square(4)
+        capture = DisplayMethods.capture_stdout(s, "print")
+        correct = "[Square] ({}) 0/0 - 4\n".format(s.id)
         self.assertEqual(correct, capture.getvalue())
 
-    def PrintWidthHeightXS(self):
-        """A function that prints a rectangle given w, h & x to stdout"""
-
-        s = S(5, 5, 1)
-        correct = "[Square] ({}) 1/0 - 5/5".format(s.id)
+    def test_str_method_size_x(self):
+        s = Square(5, 5)
+        correct = "[Square] ({}) 5/0 - 5".format(s.id)
         self.assertEqual(correct, s.__str__())
 
-    def PrintWidthHeightXYS(self):
-        """A function that prints a rectangle given w, h, x & y to stdout"""
-
-        s = S(1, 8, 2, 4)
-        correct = "[Square] ({}) 2/4 - 1/8".format(r.id)
+    def test_str_method_size_x_y(self):
+        s = Square(7, 4, 22)
+        correct = "[Square] ({}) 4/22 - 7".format(s.id)
         self.assertEqual(correct, str(s))
 
-    def PrintWidthHeightXYIDS(self):
-        """A function that prints a rectangle given w,h,x,y,id to stdout"""
+    def test_str_method_size_x_y_id(self):
+        s = Square(2, 88, 4, 19)
+        self.assertEqual("[Square] (19) 88/4 - 2", str(s))
 
-        s = S(13, 21, 2, 4, 7)
-        self.assertEqual("[Square] (7) 2/4 - 13/21", str(s))
-
-    def PrintStrChangedAttS(self):
-        """A function that prints rectangle with str method changed values"""
-
-        s = S(7, 7, 0, 0, [4])
-        s.width = 15
-        s.height = 1
+    def test_str_method_changed_attributes(self):
+        s = Square(7, 0, 0, [4])
+        s.size = 15
         s.x = 8
         s.y = 10
-        self.assertEqual("[Square] ([4]) 8/10 - 15/1", str(s))
+        self.assertEqual("[Square] ([4]) 8/10 - 15", str(s))
 
-    def PrintStrOneArgS(self):
-        """A function that prints rectangle with only one argument given"""
-
-        s = S(1, 2, 3, 4, 5)
-        with self.assertSaises(TypeError):
+    def test_str_method_one_arg(self):
+        s = Square(1, 2, 3, 4)
+        with self.assertRaises(TypeError):
             s.__str__(1)
 
-    # display method
-    def DisplayWidthHeightS(self):
-        """A function taht displays a rectangle given w & h to stdout"""
+    def test_display_size(self):
+        s = Square(2, 0, 0, 9)
+        capture = DisplayMethods.capture_stdout(s, "display")
+        self.assertEqual("##\n##\n", capture.getvalue())
 
-        s = S(2, 3, 0, 0, 0)
-        capture = DisplayMethodsS.CaptureStdout(s, "display")
-        self.assertEqual("##\n##\n##\n", capture.getvalue())
+    def test_display_size_x(self):
+        s = Square(3, 1, 0, 18)
+        capture = DisplayMethods.capture_stdout(s, "display")
+        self.assertEqual(" ###\n ###\n ###\n", capture.getvalue())
 
-    def DisplayWidthHeightXS(self):
-        """A function taht displays a rectangle given w,h, x to stdout"""
-
-        s = S(3, 2, 1, 0, 1)
-        capture = DisplayMethodsS.CaptureStdout(s, "display")
-        self.assertEqual(" ###\n ###\n", capture.getvalue())
-
-    def DisplayWidthHeightYS(self):
-        """A function taht displays a rectangle given w,h,y to stdout"""
-
-        s = S(4, 5, 0, 1, 0)
-        capture = DisplayMethodsS.CaptureStdout(s, "display")
-        display = "\n####\n####\n####\n####\n####\n"
+    def test_display_size_y(self):
+        s = Square(4, 0, 1, 9)
+        capture = DisplayMethods.capture_stdout(s, "display")
+        display = "\n####\n####\n####\n####\n"
         self.assertEqual(display, capture.getvalue())
 
-    def DisplayWidthHeightXYS(self):
-        """A function taht displays a rectangle given w,h,x,y to stdout"""
-
-        s = S(2, 4, 3, 2, 0)
-        capture = DisplayMethodsS.CaptureStdout(s, "display")
-        display = "\n\n   ##\n   ##\n   ##\n   ##\n"
+    def test_display_size_x_y(self):
+        s = Square(2, 3, 2, 1)
+        capture = DisplayMethods.capture_stdout(s, "display")
+        display = "\n\n   ##\n   ##\n"
         self.assertEqual(display, capture.getvalue())
 
-    def DisplayOneArgS(self):
-        """A function that displays a rectangle given only 1 argument"""
-
-        s = S(5, 1, 2, 4, 7)
-        with self.assertSaises(TypeError):
+    def test_display_one_arg(self):
+        s = Square(3, 4, 5, 2)
+        with self.assertRaises(TypeError):
             s.display(1)
 
 
-# Class #8
+# Class #7
 class SquareArgs(unittest.TestCase):
     """A class that defines updating *args method for rectangle model"""
 
-    def Pass0SArg(self):
-        """A function that passes 0 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_zero(self):
+        s = Square(10, 10, 10, 10)
         s.update()
-        self.assertEqual("[Square] (10) 10/10 - 10/10", str(s))
+        self.assertEqual("[Square] (10) 10/10 - 10", str(s))
 
-    def Pass1SArg(self):
-        """A function that passes 0 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_one(self):
+        s = Square(10, 10, 10, 10)
         s.update(89)
-        self.assertEqual("[Square] (89) 10/10 - 10/10", str(s))
+        self.assertEqual("[Square] (89) 10/10 - 10", str(s))
 
-    def Pass2SArg(self):
-        """A function that passes 2 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_two(self):
+        s = Square(10, 10, 10, 10)
         s.update(89, 2)
-        self.assertEqual("[Square] (89) 10/10 - 2/10", str(s))
+        self.assertEqual("[Square] (89) 10/10 - 2", str(s))
 
-    def Pass3SArg(self):
-        """A function that passes 3 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_three(self):
+        s = Square(10, 10, 10, 10)
         s.update(89, 2, 3)
-        self.assertEqual("[Square] (89) 10/10 - 2/3", str(s))
+        self.assertEqual("[Square] (89) 3/10 - 2", str(s))
 
-    def Pass4SArg(self):
-        """A function that passes 4 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_four(self):
+        s = Square(10, 10, 10, 10)
         s.update(89, 2, 3, 4)
-        self.assertEqual("[Square] (89) 4/10 - 2/3", str(s))
+        self.assertEqual("[Square] (89) 3/4 - 2", str(s))
 
-    def Pass5SArg(self):
-        """A function that passes 5 attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_more_than_four(self):
+        s = Square(10, 10, 10, 10)
         s.update(89, 2, 3, 4, 5)
-        self.assertEqual("[Square] (89) 4/5 - 2/3", str(s))
+        self.assertEqual("[Square] (89) 3/4 - 2", str(s))
 
-    def PassOver5SArg(self):
-        """A function that passes over 5 attributes to *args"""
+    def test_update_args_width_setter(self):
+        s = Square(10, 10, 10, 10)
+        s.update(89, 2)
+        self.assertEqual(2, s.width)
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(89, 2, 3, 4, 5, 6)
-        self.assertEqual("[Square] (89) 4/5 - 2/3", str(s))
+    def test_update_args_height_setter(self):
+        s = Square(10, 10, 10, 10)
+        s.update(89, 2)
+        self.assertEqual(2, s.height)
 
-    def PassNoneSArg(self):
-        """A function that passes None as attribute to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_None_id(self):
+        s = Square(10, 10, 10, 10)
         s.update(None)
-        correct = "[Square] ({}) 10/10 - 10/10".format(s.id)
+        correct = "[Square] ({}) 10/10 - 10".format(s.id)
         self.assertEqual(correct, str(s))
 
-    def PassNoneIDSArg(self):
-        """A function that passes NOne and ID attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        s.update(None, 4, 5, 2)
-        correct = "[Square] ({}) 2/10 - 4/5".format(s.id)
+    def test_update_args_None_id_and_more(self):
+        s = Square(10, 10, 10, 10)
+        s.update(None, 4, 5)
+        correct = "[Square] ({}) 5/10 - 4".format(s.id)
         self.assertEqual(correct, str(s))
 
-    def PassUpdated2SArg(self):
-        """A function that passes twice updated attributes to *args"""
+    def test_update_args_twice(self):
+        s = Square(10, 10, 10, 10)
+        s.update(89, 2, 3, 4)
+        s.update(4, 3, 2, 89)
+        self.assertEqual("[Square] (4) 2/89 - 3", str(s))
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(89, 2, 3, 4, 5, 6)
-        s.update(6, 5, 4, 3, 2, 89)
-        self.assertEqual("[Square] (6) 3/2 - 5/4", str(s))
-
-    def PassInvalidWidthSArg(self):
-        """A function that passes invalid width type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_invalid_size_type(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             s.update(89, "invalid")
 
-    def PassZeroWidthSArg(self):
-        """A function that passes zero width type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_size_zero(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             s.update(89, 0)
 
-    def PassNegWidthSArg(self):
-        """A function that passes negative width type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_size_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(89, -5)
+            s.update(89, -4)
 
-    def PassInvalidHeightSArg(self):
-        """A function that passes invalid height type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            s.update(89, 2, "invalid")
-
-    def PassZeroHeightSArg(self):
-        """A function that passes zero height attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            s.update(89, 1, 0)
-
-    def PassNegHeightSArg(self):
-        """A function that passes negative height attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            s.update(89, 1, -5)
-
-    def PassInvalidXSArg(self):
-        """A function that passes invalid x type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_invalid_x(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            s.update(89, 2, 3, "invalid")
+            s.update(89, 1, "invalid")
 
-    def PassNegXSArg(self):
-        """A function that passes negative x attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_x_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            s.update(89, 1, 2, -6)
+            s.update(98, 1, -4)
 
-    def PassInvalidYSArg(self):
-        """A function that passes invalid y type attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_invalid_y(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            s.update(89, 2, 3, 4, "invalid")
+            s.update(89, 1, 2, "invalid")
 
-    def PassNegYSArg(self):
-        """A function that passes negative y attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_y_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            s.update(89, 1, 2, 3, -6)
+            s.update(98, 1, 2, -4)
 
-    def PassWidthHeightSArg(self):
-        """A function that passes width before height attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_size_before_x(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             s.update(89, "invalid", "invalid")
 
-    def PassWidthXSArg(self):
-        """A function that passes width before x attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_args_size_before_y(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s.update(89, "invalid", 1, "invalid")
+            s.update(89, "invalid", 2, "invalid")
 
-    def PassWidthYSArg(self):
-        """A function that passes width before y attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s.update(89, "invalid", 1, 2, "invalid")
-
-    def PassHeightXSArg(self):
-        """A function that passes height before x attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+    def test_update_args_x_before_y(self):
+        s = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
             s.update(89, 1, "invalid", "invalid")
 
-    def PassHeightYSArg(self):
-        """A function that passes height before y attributes to *args"""
 
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            s.update(89, 1, "invalid", 1, "invalid")
-
-    def PassXYSArg(self):
-        """A function that passes x before y attributes to *args"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            s.update(89, 1, 2, "invalid", "invalid")
-
-
-# Class #9
+# Class #8
 class SquareKwargs(unittest.TestCase):
     """A class that defines updating **kwargs method for rectangle model"""
 
-    def Pass1SKwarg(self):
-        """A function that passes 1 attribute to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_one(self):
+        s = Square(10, 10, 10, 10)
         s.update(id=1)
-        self.assertEqual("[Square] (1) 10/10 - 10/10", str(s))
+        self.assertEqual("[Square] (1) 10/10 - 10", str(s))
 
-    def Pass2SKwarg(self):
-        """A function that passes 2 attributes to **kwargs"""
+    def test_update_kwargs_two(self):
+        s = Square(10, 10, 10, 10)
+        s.update(size=1, id=2)
+        self.assertEqual("[Square] (2) 10/10 - 1", str(s))
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(width=2, id=1)
-        self.assertEqual("[Square] (1) 10/10 - 2/10", str(s))
+    def test_update_kwargs_three(self):
+        s = Square(10, 10, 10, 10)
+        s.update(y=1, size=3, id=89)
+        self.assertEqual("[Square] (89) 10/1 - 3", str(s))
 
-    def Pass3SKwarg(self):
-        """A function that passes 3 attributes to **kwargs"""
+    def test_update_kwargs_four(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, x=1, y=3, size=4)
+        self.assertEqual("[Square] (89) 1/3 - 4", str(s))
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(width=2, height=3, id=89)
-        self.assertEqual("[Square] (89) 10/10 - 2/3", str(s))
+    def test_update_kwargs_width_setter(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, size=8)
+        self.assertEqual(8, s.width)
 
-    def Pass4SKwarg(self):
-        """A function that passes 4 attributes to **kwargs"""
+    def test_update_kwargs_height_setter(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, size=9)
+        self.assertEqual(9, s.height)
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(id=89, x=1, height=2, width=4)
-        self.assertEqual("[Square] (89) 1/3 - 4/2", str(s))
-
-    def Pass5SKwarg(self):
-        """A function that passes 5 attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
-        s.update(y=5, x=8, id=99, width=1, height=2)
-        self.assertEqual("[Square] (99) 8/5 - 1/2", str(s))
-
-    def PassNoneSKwarg(self):
-        """A function that passes None as attribute to **kwars"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_None_id(self):
+        s = Square(10, 10, 10, 10)
         s.update(id=None)
-        correct = "[Square] ({}) 10/10 - 10/10".format(s.id)
+        correct = "[Square] ({}) 10/10 - 10".format(s.id)
         self.assertEqual(correct, str(s))
 
-    def PassNoneIDSKwarg(self):
-        """A function that passes None and id as attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
-        s.update(id=None, height=7, y=9)
-        correct = "[Square] ({}) 10/9 - 10/7".format(s.id)
+    def test_update_kwargs_None_id_and_more(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=None, size=7, x=18)
+        correct = "[Square] ({}) 18/10 - 7".format(s.id)
         self.assertEqual(correct, str(s))
 
-    def PassUpdated2SKwarg(self):
-        """A function that passes twice updated attributes to **kwargs"""
+    def test_update_kwargs_twice(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, x=1)
+        s.update(y=3, x=15, size=2)
+        self.assertEqual("[Square] (89) 15/3 - 2", str(s))
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(id=89, x=1, height=2)
-        s.update(y=3, height=15, width=2)
-        self.assertEqual("[Square] (89) 1/3 - 2/15", str(s))
-
-    def PassInvalidWidthSKwarg(self):
-        """A function that passes invalid width type attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_invalid_size(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s.update(width="invalid")
+            s.update(size="invalid")
 
-    def PassZeroWidthSKwarg(self):
-        """A function that passes zero width attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_size_zero(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(width=0)
+            s.update(size=0)
 
-    def PassNegWidthSKwarg(self):
-        """A function that passes negative width attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_size_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(width=-5)
+            s.update(size=-3)
 
-    def PassInvalidHeightSKwarg(self):
-        """A function that passes invalid height type attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            s.update(height="invalid")
-
-    def PassZeroHeightSKwarg(self):
-        """A function that passes zero height attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            s.update(height=0)
-
-    def PassNegHeightSKwarg(self):
-        """A function that passes negative height attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            s.update(height=-5)
-
-    def PassInvalidXSKwarg(self):
-        """A function that passes invalid x type attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_invalid_x(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             s.update(x="invalid")
 
-    def PassNegXSKwarg(self):
-        """A function that passes negative x attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_x_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             s.update(x=-5)
 
-    def PassInvalidYSKwarg(self):
-        """A function that passes invalid y type attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_invalid_y(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             s.update(y="invalid")
 
-    def PassNegYSKwarg(self):
-        """A function that passes negative y attributes to **kwargs"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_y_negative(self):
+        s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             s.update(y=-5)
 
-    def PassArgsAndKwargsS(self):
-        """A function that passes to *args and **kwargs"""
+    def test_update_args_and_kwargs(self):
+        s = Square(10, 10, 10, 10)
+        s.update(89, 2, y=6)
+        self.assertEqual("[Square] (89) 10/10 - 2", str(s))
 
-        s = S(10, 10, 10, 10, 10)
-        s.update(89, 2, height=4, y=6)
-        self.assertEqual("[Square] (89) 10/10 - 2/10", str(s))
-
-    def PassWrongKeysSKwargs(self):
-        """A function that passes wrong keys as attributes"""
-
-        s = S(10, 10, 10, 10, 10)
+    def test_update_kwargs_wrong_keys(self):
+        s = Square(10, 10, 10, 10)
         s.update(a=5, b=10)
-        self.assertEqual("[Square] (10) 10/10 - 10/10", str(s))
+        self.assertEqual("[Square] (10) 10/10 - 10", str(s))
 
-    def PassMoreWrongKeysSKwargs(self):
-        """A function that passes wrong keys as attributes"""
-
-        s = S(10, 10, 10, 10, 10)
-        s.update(height=5, id=89, a=1, b=54, x=19, y=7)
-        self.assertEqual("[Square] (89) 19/7 - 10/5", str(s))
+    def test_update_kwargs_some_wrong_keys(self):
+        s = Square(10, 10, 10, 10)
+        s.update(size=5, id=89, a=1, b=54)
+        self.assertEqual("[Square] (89) 10/10 - 5", str(s))
 
 
-# Class #10
+# Class #9
 class SquareTodict(unittest.TestCase):
     """A class that defines dictionary representation of rectangles"""
 
-    def SToDictOutput(self):
-        """A function that passes dictionary output"""
-
-        s = S(10, 2, 1, 9, 5)
-        correct = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+    def test_to_dictionary_output(self):
+        s = Square(10, 2, 1, 1)
+        correct = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
         self.assertDictEqual(correct, s.to_dictionary())
 
-    def SToDoictNoObj(self):
-        """A function that passes dictionary with no object changes"""
-
-        s1 = S(10, 2, 1, 9, 5)
-        s2 = S(5, 9, 1, 2, 10)
+    def test_to_dictionary_no_object_changes(self):
+        s1 = Square(10, 2, 1, 2)
+        s2 = Square(1, 2, 10)
         s2.update(**s1.to_dictionary())
         self.assertNotEqual(s1, s2)
 
-    def SToDictArgs(self):
-        """A function that passes dictionary arguments"""
-
-        s = S(10, 2, 4, 1, 2)
-        with self.assertSaises(TypeError):
+    def test_to_dictionary_arg(self):
+        s = Square(10, 10, 10, 10)
+        with self.assertRaises(TypeError):
             s.to_dictionary(1)
 
 
