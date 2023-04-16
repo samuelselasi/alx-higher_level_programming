@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# 0. If it's not tested it doesn't work
+# 0. If it's not tested it doesn't work.
 # Run: python3 -m unittest discover tests
 
 import io
