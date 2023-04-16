@@ -3,19 +3,6 @@
 # 0. If it's not tested it doesn't work
 # Run: python3 -m unittest discover tests
 
-"""
-CLass #0: SquareInstances
-Class #1: SizeInstances
-Class #2: XInstances
-Class #3: YInstances
-Class #4: SquareInitOrder
-Class #5: SquareArea
-Class #6: DisplayMethodsS
-Class #7: SquareArgs
-Class #8: SquareKwargs
-Class #9: SquareTodict
-"""
-
 import io
 import sys
 import unittest
