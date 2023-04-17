@@ -97,3 +97,46 @@ guillaume@ubuntu:~/$ ./0-main.py
 4
 guillaume@ubuntu:~/$
 ```
+
+[2. First Rectangle](./models/rectangle.py)
+
+Write the class `Rectangle` that inherits from `Base`:
+
+* In the file `models/rectangle.py`
+* Class `Rectangle` inherits from `Base`
+* Private instance attributes, each with its own public `getter` and `setter`:
+	* `__width` -> `width`
+	* `__height` -> `height`
+	* `__x` -> `x`
+	* `__y` -> `y`
+* Class constructor: `def __init__(self, width, height, x=0, y=0, id=None):`
+	* Call the super class with `id` - this super call with use the logic of the `__init__` of the `Base` class
+	* Assign each argument `width`, `height`, `x` and `y` to the right attribute
+
+Why private attributes with `getter`/`setter`? Why not directly public attribute?
+
+Because we want to protect attributes of our class. With a `setter`, you are able to validate what a developer is trying to assign to a variable. So after, in your class you can “**trust**” these attributes.
+```
+guillaume@ubuntu:~/$ cat 1-main.py
+#!/usr/bin/python3
+""" 1-main """
+from models.rectangle import Rectangle
+
+if __name__ == "__main__":
+
+    r1 = Rectangle(10, 2)
+    print(r1.id)
+
+    r2 = Rectangle(2, 10)
+    print(r2.id)
+
+    r3 = Rectangle(10, 2, 0, 0, 12)
+    print(r3.id)
+
+guillaume@ubuntu:~/$ ./1-main.py
+1
+2
+12
+guillaume@ubuntu:~/$
+```
+
