@@ -267,3 +267,34 @@ guillaume@ubuntu:~/$ ./5-main.py
 guillaume@ubuntu:~/$
 ```
 
+[7. Display #1](./models/rectangle.py)
+
+Update the class `Rectangle` by improving the public method `def display(self):` to print in `stdout` the `Rectangle` instance with the character `#` by taking care of `x` and `y`
+```
+guillaume@ubuntu:~/$ cat 6-main.py
+#!/usr/bin/python3
+""" 6-main """
+from models.rectangle import Rectangle
+
+if __name__ == "__main__":
+
+    r1 = Rectangle(2, 3, 2, 2)
+    r1.display()
+
+    print("---")
+
+    r2 = Rectangle(3, 2, 1, 0)
+    r2.display()
+
+guillaume@ubuntu:~/$ ./6-main.py | cat -e
+$
+$
+  ##$
+  ##$
+  ##$
+---$
+ ###$
+ ###$
+guillaume@ubuntu:~/$
+```
+
