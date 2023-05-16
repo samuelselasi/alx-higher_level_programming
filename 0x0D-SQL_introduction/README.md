@@ -5,7 +5,7 @@
 
 * [What is Database & SQL?](https://www.youtube.com/watch?v=FR4QIeZaPeM)
 * [A Basic MySQL Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04)
-* [Basic SQL statements: DDL and DML](https://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php?page=sql/ddldml.php) (no need to read the chapter “Privileges”)
+* [Basic SQL statements: DDL and DML](https://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php?page=sql/ddldml.php) (*no need to read the chapter “Privileges”*)
 * [Basic queries: SQL and RA](https://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php?page=sql/queries.php)
 * [SQL technique: functions](https://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php?page=sql/functions.php)
 * [SQL technique: subqueries](https://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php?page=sql/subqueries.php)
@@ -491,5 +491,20 @@ Joliet  68.6716
 Naperville  68.1029
 Tempe   67.0441
 Peoria  66.5392
+guillaume@ubuntu:~/$
+```
+
+[19. Temperatures #1](./102-top_city.sql)
+
+Import in `hbtn_0c_0` database this table dump: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/272/temperatures.sql) (same as `Temperatures #0`)
+
+Write a script that displays the top `3` of cities `temperature` during `July` and `August` ordered by `temperature` (descending)
+```
+guillaume@ubuntu:~/$ cat 102-top_city.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
+Enter password: 
+city    avg_temp
+Naperville  76.9412
+San Diego   73.7941
+Sunnyvale   73.2353
 guillaume@ubuntu:~/$
 ```
