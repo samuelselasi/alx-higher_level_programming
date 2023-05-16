@@ -1,7 +1,7 @@
 # 0x0D. SQL - Introduction
 ### `SQL` `MySQL`
 ## Resources
-*Read or watch*:
+**Read or watch**:
 
 * [What is Database & SQL?](https://www.youtube.com/watch?v=FR4QIeZaPeM)
 * [A Basic MySQL Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04)
@@ -336,5 +336,21 @@ score   name
 10  John
 8   George
 3   Alex
+guillaume@ubuntu:~/$
+```
+
+[11. Select the best](./11-best_score.sql)
+
+Write a script that lists all records with a `score >= 10` in the table `second_table` of the database `hbtn_0c_0` in your `MySQL` server.
+
+* Results should display both the `score` and the `name` (in this order)
+* Records should be ordered by `score` (top first)
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 11-best_score.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
+Enter password: 
+score   name
+14  Bob
+10  John
 guillaume@ubuntu:~/$
 ```
