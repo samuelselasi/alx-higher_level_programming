@@ -45,6 +45,7 @@ Enjoy!
 10. [0x0A-python-inheritance](./0x0A-python-inheritance)
 11. [0x0B-python-input_output](./0x0B-python-input_output)
 12. [0x0C-python-almost_a_circle](./0x0C-python-almost_a_circle)
+13. [0x0D-SQL_introduction](./0x0D-SQL_introduction)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
