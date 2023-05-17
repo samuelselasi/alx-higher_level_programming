@@ -1,5 +1,8 @@
 # 0x0E. SQL - More queries
 ### `SQL` `MySQL`
+
+![66988091](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/c2f4b216-2d46-42a1-b7d0-05a86724e413)
+
 ## Resources
 **Read or watch**:
 
@@ -113,6 +116,8 @@ id  name
 8   Thriller
 $
 ```
+
+![bc2575fee3303b731031](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/edeb5550-2f3d-4c3e-8e14-d7bc087b2063)
 
 ## Tasks
 
