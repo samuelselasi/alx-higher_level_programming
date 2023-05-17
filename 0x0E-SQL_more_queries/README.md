@@ -482,3 +482,31 @@ Better Call Saul    NULL
 Homeland    NULL
 guillaume@ubuntu:~/$
 ```
+
+[13. Number of shows by genre](./13-count_shows_by_genre.sql)
+
+Import the database dump of `hbtn_0d_tvshows` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql) (same as `12-genre_id_by_show.sql`)
+
+Write a script that lists all genres from `hbtn_0d_tvshows` and displays the number of shows linked to each.
+
+* Each record should display: `<TV Show genre>` - `<Number of shows linked to this genre>`
+* First column must be called `genre`
+* Second column must be called `number_of_shows`
+* Don’t display a `genre` that doesn’t have any shows linked
+* Results must be sorted in descending order by the number of `shows` linked
+* You can use only one `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 13-count_shows_by_genre.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+Enter password: 
+genre   number_of_shows
+Drama   5
+Comedy  4
+Mystery 2
+Crime   2
+Suspense    2
+Thriller    2
+Adventure   1
+Fantasy 1
+guillaume@ubuntu:~/$
+```
