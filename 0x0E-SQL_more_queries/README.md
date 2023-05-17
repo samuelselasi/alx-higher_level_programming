@@ -424,3 +424,42 @@ The Last Man on Earth   1
 The Last Man on Earth   5
 guillaume@ubuntu:~/$
 ```
+
+[11. Genre ID for all shows](./11-genre_id_all_shows.sql)
+
+Import the database dump of `hbtn_0d_tvshows` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql) (same as `10-genre_id_by_show.sql`)
+
+Write a script that lists all shows contained in the database `hbtn_0d_tvshows`.
+
+* Each record should display: `tv_shows.title` - `tv_show_genres.genre_id`
+* Results must be sorted in ascending order by `tv_shows.title` and `tv_show_genres.genre_id`
+* If a show doesn’t have a genre, display `NULL`
+* You can use only one `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 11-genre_id_all_shows.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+Enter password: 
+title   genre_id
+Better Call Saul    NULL
+Breaking Bad    1
+Breaking Bad    6
+Breaking Bad    7
+Breaking Bad    8
+Dexter  1
+Dexter  2
+Dexter  6
+Dexter  7
+Dexter  8
+Game of Thrones 1
+Game of Thrones 3
+Game of Thrones 4
+Homeland    NULL
+House   1
+House   2
+New Girl    5
+Silicon Valley  5
+The Big Bang Theory 5
+The Last Man on Earth   1
+The Last Man on Earth   5
+guillaume@ubuntu:~/$
+```
