@@ -555,3 +555,42 @@ The Big Bang Theory
 The Last Man on Earth
 guillaume@ubuntu:~/$
 ```
+
+[16. List shows and genres](./16-shows_by_genre.sql)
+
+Import the database dump of `hbtn_0d_tvshows` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql) (same as `15-genre_id_by_show.sql`)
+
+Write a script that lists all `shows`, and all `genres` linked to that show, from the database `hbtn_0d_tvshows`.
+
+* If a show doesn’t have a `genre`, display `NULL` in the `genre` column
+* Each record should display: `tv_shows.title` - `tv_genres.name`
+* Results must be sorted in ascending order by the show `title` and genre `name`
+* You can use only one `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 16-shows_by_genre.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+Enter password: 
+title   name
+Better Call Saul    NULL
+Breaking Bad    Crime
+Breaking Bad    Drama
+Breaking Bad    Suspense
+Breaking Bad    Thriller
+Dexter  Crime
+Dexter  Drama
+Dexter  Mystery
+Dexter  Suspense
+Dexter  Thriller
+Game of Thrones Adventure
+Game of Thrones Drama
+Game of Thrones Fantasy
+Homeland    NULL
+House   Drama
+House   Mystery
+New Girl    Comedy
+Silicon Valley  Comedy
+The Big Bang Theory Comedy
+The Last Man on Earth   Comedy
+The Last Man on Earth   Drama
+guillaume@ubuntu:~/$
+```
