@@ -266,3 +266,26 @@ id  name
 89  Best School
 guillaume@ubuntu:~/$
 ```
+
+[6. States table](./6-states.sql)
+
+Write a script that creates the database `hbtn_0d_usa` and the table `states` (in the database `hbtn_0d_usa`) on your MySQL server.
+
+* `states` description:
+	* `id` INT unique, auto generated, can’t be null and is a primary key
+	* `name` VARCHAR(256) can’t be null
+* If the database `hbtn_0d_usa` already exists, your script should not fail
+* If the table `states` already exists, your script should not fail
+```
+guillaume@ubuntu:~/$ cat 6-states.sql | mysql -hlocalhost -uroot -p
+Enter password: 
+guillaume@ubuntu:~/$ echo 'INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas");' | mysql -hlocalhost -uroot -p hbtn_0d_usa
+Enter password: 
+guillaume@ubuntu:~/$ echo 'SELECT * FROM states;' | mysql -hlocalhost -uroot -p hbtn_0d_usa
+Enter password: 
+id  name
+1   California
+2   Arizona
+3   Texas
+guillaume@ubuntu:~/$
+```
