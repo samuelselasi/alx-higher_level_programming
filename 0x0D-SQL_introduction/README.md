@@ -1,5 +1,8 @@
 # 0x0D. SQL - Introduction
 ### `SQL` `MySQL`
+
+![rtcwz (1)](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/42e9670f-4dc3-4f18-8cda-6aedc10ee6b1)
+
 ## Resources
 **Read or watch**:
 
