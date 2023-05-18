@@ -594,3 +594,24 @@ The Last Man on Earth   Comedy
 The Last Man on Earth   Drama
 guillaume@ubuntu:~/$
 ```
+
+[17. Not my genre](./100-not_my_genres.sql)
+
+Import the database dump of `hbtn_0d_tvshows` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql) (same as `16-genre_id_by_show.sql`)
+
+Write a script that uses the `hbtn_0d_tvshows` database to list all `genres` not linked to the show `Dexter`
+
+* The `tv_shows` table contains only one record where `title` = `Dexter` (but the `id` can be different)
+* Each record should display: `tv_genres.name`
+* Results must be sorted in ascending order by the genre `name`
+* You can use a maximum of **two** `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 100-not_my_genres.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+Enter password: 
+name
+Adventure
+Comedy
+Fantasy
+guillaume@ubuntu:~/$
+```
