@@ -615,3 +615,27 @@ Comedy
 Fantasy
 guillaume@ubuntu:~/$
 ```
+
+[18. No Comedy tonight!](./101-not_a_comedy.sql)
+
+Import the database dump of `hbtn_0d_tvshows` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql) (same as `100-not_my_genres.sql`)
+
+Write a script that lists all shows without the genre `Comedy` in the database `hbtn_0d_tvshows`.
+
+* The `tv_genres` table contains only one record where `name` = `Comedy` (but the `id` can be different)
+* Each record should display: `tv_shows.title`
+* Results must be sorted in ascending order by the show `title`
+* You can use a maximum of two `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 101-not_a_comedy.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+Enter password: 
+title
+Better Call Saul
+Breaking Bad
+Dexter
+Game of Thrones
+Homeland
+House
+guillaume@ubuntu:~/$
+```
