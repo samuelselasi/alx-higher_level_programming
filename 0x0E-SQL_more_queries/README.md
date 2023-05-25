@@ -666,3 +666,28 @@ The Big Bang Theory 0
 New Girl    0
 guillaume@ubuntu:~/$
 ```
+
+[20. Best genre](./103-rating_genres.sql)
+
+Import the database dump from `hbtn_0d_tvshows_rate` to your MySQL server: [download](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows_rate.sql) (same as [102-rating_shows.sql](./102-rating_shows.sql))
+
+Write a script that lists all `genres` in the database `hbtn_0d_tvshows_rate` by their rating.
+
+* Each record should display: `tv_genres.name - rating sum`
+* Results must be sorted in descending order by their rating
+* You can use only one `SELECT` statement
+* The database name will be passed as an argument of the `mysql` command
+```
+guillaume@ubuntu:~/$ cat 103-rating_genres.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows_rate
+Enter password: 
+name    rating
+Drama   150
+Comedy  92
+Adventure   79
+Fantasy 79
+Mystery 45
+Crime   40
+Suspense    40
+Thriller    40
+guillaume@ubuntu:~/$
+```
