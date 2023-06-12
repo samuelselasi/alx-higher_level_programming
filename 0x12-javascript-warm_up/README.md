@@ -9,7 +9,7 @@ JavaScript is used for many things. Here, you will use JavaScript for 2 reasons:
 
 For the moment, and for learning all basic concepts of this language, we will do some scripting. After, we will make our AirBnB project dynamic by using Javascript and JQuery.
 
-
+![Javascript-535 png](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/eb1f9919-0b09-42d7-9c54-90401b682770)
 
 ## Resources
 **Read or watch**:
@@ -379,6 +379,7 @@ guillaume@ubuntu:~/0x12$ ./100-main.js
 guillaume@ubuntu:~/0x12$
 ```
 
+![4ae30fb44f708dbb3abc211b784db614e615ca21](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/29fec8f4-bb02-40b6-8256-68ce73dcc9ed)
 
 Do you get it? Tweet! Post! Talk about it!
 
