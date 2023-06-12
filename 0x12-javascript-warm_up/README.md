@@ -364,3 +364,24 @@ guillaume@ubuntu:~/0x12$ ./13-main.js
 8
 guillaume@ubuntu:~/0x12$
 ```
+
+[14. Const or not const](./100-let_me_const.js)
+
+Write a file that modifies the value of `myVar` to `333`
+```
+guillaume@ubuntu:~/0x12$ cat 100-main.js
+#!/usr/bin/node
+myVar = 89;
+require('./100-let_me_const')
+console.log(myVar);
+guillaume@ubuntu:~/0x12$ ./100-main.js
+333
+guillaume@ubuntu:~/0x12$
+```
+
+
+Do you get it? Tweet! Post! Talk about it!
+
+**Hint**: `Scope`
+
+**This exercise doesn’t pass `semistandard` so don’t worry about it**.
