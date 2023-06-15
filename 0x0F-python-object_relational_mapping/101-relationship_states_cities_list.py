@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A script that creates the State California with the City San Francisco
-from the database hbtn_0e_100_usa
+A script that lists all State objects, and corresponding City objects,
+contained in the database hbtn_0e_101_usa
 """
 
 from relationship_state import Base, State
