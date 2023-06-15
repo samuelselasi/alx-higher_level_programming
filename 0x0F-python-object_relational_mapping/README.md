@@ -360,6 +360,7 @@ guillaume@ubuntu:~/0x0F$
 
 [6. First state model](./model_state.py)
 
+![f84fe6edb9436c8560996c6d72e17ea51dab28e1](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/fe99d75d-cdf5-479e-b7c6-bfb957cf2a91)
 
 Write a python file that contains the class definition of a `State` and an instance `Base = declarative_base():`
 
