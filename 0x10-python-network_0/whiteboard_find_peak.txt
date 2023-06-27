@@ -1,0 +1,38 @@
+-----------------------------------------------------
+|                                                   |
+|         Technical Interview Preparation           |
+|                                                   |
+-----------------------------------------------------
+
+Function: find_peak(list_of_integers)
+
+1. Get the length of the list: n = len(list_of_integers)
+
+2. Base cases:
+   - If n == 0, return None (empty list)
+   - If n == 1, return the only element in the list
+
+3. Binary Search:
+   - Set low = 0 and high = n - 1
+
+   while low <= high:
+       - Calculate mid as (low + high) // 2
+
+       - Check if mid is a peak:
+         - If (mid == 0 or list_of_integers[mid] >= list_of_integers[mid - 1]) and
+           (mid == n - 1 or list_of_integers[mid] >= list_of_integers[mid + 1]):
+           - Return list_of_integers[mid] as the peak
+
+       - If the element to the left of mid is greater, the peak must be on the left side:
+         - If mid > 0 and list_of_integers[mid - 1] > list_of_integers[mid]:
+           - Set high = mid - 1
+
+       - If the element to the right of mid is greater, the peak must be on the right side:
+         - Else:
+           - Set low = mid + 1
+
+4. If no peak is found, return None
+
+5. Complexity: O(log(n))
+
+-----------------------------------------------------
