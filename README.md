@@ -50,6 +50,7 @@ Enjoy!
 16. [0x12-javascript-warm_up](./0x12-javascript-warm_up)
 17. [0x13-javascript_objects_scopes_closures](./0x13-javascript_objects_scopes_closures)
 18. [0x0F-python-object_relational_mapping](./0x0F-python-object_relational_mapping)
+19. [0x10-python-network_0](./0x10-python-network_0)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
