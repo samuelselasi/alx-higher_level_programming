@@ -221,3 +221,17 @@ guillaume@ubuntu:~/0x10$ ./101-post_json.sh 0.0.0.0:5000/route_json my_json_2 ; 
 Not a valid JSON
 guillaume@ubuntu:~/0x10$
 ```
+
+[9. Catch me if you can!](./102-catch_me.sh)
+
+Write a Bash script that makes a request to `0.0.0.0:5000/catch_me` that causes the server to respond with a message containing `You got me!`, in the body of the response.
+
+* You have to use `curl`
+* You are not allow to use `echo`, `cat`, etc. to display the final result
+
+Please test your script in the sandbox provided, using the web server running on port `5000`
+```
+guillaume@ubuntu:~/0x10$ ./102-catch_me.sh ; echo ""
+You got me!
+guillaume@ubuntu:~/0x10$
+```
