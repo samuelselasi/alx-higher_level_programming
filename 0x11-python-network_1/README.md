@@ -106,3 +106,18 @@ guillaume@ubuntu:~/0x11$ ./3-error_code.py http://0.0.0.0:5000/status_500
 Error code: 500
 guillaume@ubuntu:~/0x11$
 ```
+
+[4. What's my status? #1](./4-hbtn_status.py)
+
+Write a Python script that fetches `https://alx-intranet.hbtn.io/status`
+
+* You must use the package 1requests1
+* You are not allow to import packages other than `requests`
+* The body of the response must be display like the following example (tabulation before `-`)
+```
+guillaume@ubuntu:~/0x11$ ./4-hbtn_status.py | cat -e
+Body response:$
+    - type: <class 'str'>$
+    - content: OK$
+guillaume@ubuntu:~/0x11$
+```
