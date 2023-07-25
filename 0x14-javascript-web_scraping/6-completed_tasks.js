@@ -10,12 +10,12 @@ request.get(URL, (error, response, body) => {
     const completedTasks = JSON.parse(body);
     const dict = {};
 
-    for (const index of completedTasks) {
-      if (index.completed === true) {
-        if (dict[index.userId] === undefined) {
-          dict[index.userId] = 0;
+    for (const task of completedTasks) {
+      if (task.completed === true) {
+        if (dict[task.userId] === undefined) {
+          dict[task.userId] = 0;
         }
-        dict[index.userId] += 1;
+        dict[task.userId] += 1;
       }
     }
     console.log(dict);
