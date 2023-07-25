@@ -10,6 +10,7 @@ request.get(URL, { json: true }, (error, response, body) => {
   }
 
   const completedTasks = {};
+
   body.forEach((todo) => {
     if (todo.completed) {
       if (!completedTasks[todo.userId]) {
