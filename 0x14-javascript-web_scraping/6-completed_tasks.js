@@ -8,16 +8,16 @@ request(URL, function (error, response, body) {
     console.log(error);
   } else {
     const completedTasks = JSON.parse(body);
-    const dict = {};
+    const completed = {};
 
     for (const task of completedTasks) {
       if (task.completed === true) {
-        if (dict[task.userId] === undefined) {
-          dict[task.userId] = 0;
+        if (task.completed && completed[task.userId] === undefined) {
+          completed[task.userId] = 0;
         }
-        dict[task.userId] += 1;
+        completed[task.userId] += 1;
       }
     }
-    console.log(dict);
+    console.log(completed);
   }
 });
