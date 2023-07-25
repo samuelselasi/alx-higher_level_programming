@@ -21,7 +21,7 @@ We have made our JSON data available on our GitHub, at https://mdn.github.io/lea
 
 We are going to load the JSON into our script, and use some nifty DOM manipulation to display it, like this:
 
-
+![Screenshot from 2023-07-25 10-04-28](https://github.com/samuelselasi/alx-higher_level_programming/assets/85158665/d6973598-00d8-404b-a4ba-51fcaea457c7)
 
 # Top-level function
 The top-level function looks like this:
