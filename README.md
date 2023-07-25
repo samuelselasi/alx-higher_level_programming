@@ -52,6 +52,7 @@ Enjoy!
 18. [0x0F-python-object_relational_mapping](./0x0F-python-object_relational_mapping)
 19. [0x10-python-network_0](./0x10-python-network_0)
 20. [0x11-python-network_1](./0x11-python-network_1)
+21. [0x14-javascript-web_scraping](./0x14-javascript-web_scraping)
 ## Articles
 1. [Python In Details](https://onepunchcoder.medium.com/python-in-details-f5767c88d296)
 2. [Organizing Python Application Files](https://medium.com/@onepunchcoder/organizing-python-application-files-9afe98242999)
