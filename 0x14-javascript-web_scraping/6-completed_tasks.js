@@ -3,22 +3,21 @@
 const URL = process.argv[2];
 const request = require('request');
 
-request.get(URL, { json: true }, (error, response, body) => {
+request(URL, function (error, response, body) {
   if (error) {
     console.log(error);
-    return;
-  }
+  } else {
+    const completedTasks = JSON.parse(body);
+    const dict = {};
 
-  const completedTasks = {};
-
-  body.forEach((todo) => {
-    if (todo.completed) {
-      if (!completedTasks[todo.userId]) {
-        completedTasks[todo.userId] = 1;
-      } else {
-        completedTasks[todo.userId] += 1;
+    for (const index of completedTasks) {
+      if (index.completed === true) {
+        if (dict[index.userId] === undefined) {
+          dict[index.userId] = 0;
+        }
+        dict[index.userId] += 1;
       }
     }
-  });
-  console.log(completedTasks);
+    console.log(dict);
+  }
 });
