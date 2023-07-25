@@ -2,20 +2,21 @@
 
 const URL = process.argv[2];
 const request = require('request');
+const dict = {};
 
-request(URL, function (error, response, body) {
+request.get(URL, (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
-    const completedTasks = JSON.parse(body);
-    const dict = {};
-
-    for (const task of completedTasks) {
+    const result = JSON.parse(body);
+    for (const task of result) {
       if (task.completed === true) {
-        if (dict[task.userId] === undefined) {
-          dict[task.userId] = 0;
+        const ID = task.userId;
+        if (!dict[ID]) {
+          dict[ID] = 1;
+        } else {
+          dict[ID] += 1;
         }
-        dict[task.userId] += 1;
       }
     }
     console.log(dict);
