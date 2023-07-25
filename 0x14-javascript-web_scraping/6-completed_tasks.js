@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
+const URL = process.argv[2];
 const request = require('request');
-const url = process.argv[2];
 
-request.get(url, { json: true }, (error, response, body) => {
+request.get(URL, { json: true }, (error, response, body) => {
   if (error) {
     console.log(error);
     return;
@@ -13,34 +13,36 @@ request.get(url, { json: true }, (error, response, body) => {
     return;
   }
 
-  const data = {};
+  const todos = {};
   body.forEach((todo) => {
     if (todo.completed) {
-      if (!data[todo.userId]) {
-        data[todo.userId] = 1;
+      if (!todos[todo.userId]) {
+        todos[todo.userId] = 1;
       } else {
-        data[todo.userId]++;
+        todos[todo.userId]++;
       }
     }
   });
-  let index = 0;
-  const length = Object.keys(data).length;
+
+  let task = 0;
+  const length = Object.keys(todos).length;
   if (length === 0) {
     console.log('{}');
     return;
   }
-  for (const key in data) {
-    if (index === 0) {
+
+  for (const key in todos) {
+    if (task === 0) {
       if (length !== 1) {
-        console.log('{ \'' + key + '\': ' + data[key] + ',');
+        console.log('{ \'' + key + '\': ' + todos[key] + ',');
       } else {
-        console.log('{ \'' + key + '\': ' + data[key] + ' }');
+        console.log('{ \'' + key + '\': ' + todos[key] + ' }');
       }
-    } else if (index === length - 1) {
-      console.log('  \'' + key + '\': ' + data[key] + ' }');
+    } else if (task === length - 1) {
+      console.log('  \'' + key + '\': ' + todos[key] + ' }');
     } else {
-      console.log(`  '${key}': ${data[key]},`);
+      console.log(`  '${key}': ${todos[key]},`);
     }
-    index++;
+    task++;
   }
 });
