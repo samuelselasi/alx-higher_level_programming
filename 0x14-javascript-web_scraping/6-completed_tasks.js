@@ -10,6 +10,7 @@ request.get(URL, { json: true }, (error, response, body) => {
   }
 
   if (response.statusCode !== 200) {
+    console.log(error);
     return;
   }
 
