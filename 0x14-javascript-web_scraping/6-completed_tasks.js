@@ -24,25 +24,21 @@ request.get(URL, { json: true }, (error, response, body) => {
     }
   });
 
-  let task = 0;
   const length = Object.keys(todos).length;
   if (length === 0) {
     console.log('{}');
     return;
   }
 
-  for (const key in todos) {
-    if (task === 0) {
-      if (length !== 1) {
-        console.log('{ \'' + key + '\': ' + todos[key] + ',');
-      } else {
-        console.log('{ \'' + key + '\': ' + todos[key] + ' }');
-      }
-    } else if (task === length - 1) {
-      console.log('  \'' + key + '\': ' + todos[key] + ' }');
+  let task = 0;
+  console.log('{');
+  Object.entries(todos).forEach(([key, value]) => {
+    if (task === length - 1) {
+      console.log(`  '${key}': ${value}`);
     } else {
-      console.log(`  '${key}': ${todos[key]},`);
+      console.log(`  '${key}': ${value},`);
     }
     task++;
-  }
+  });
+  console.log('}');
 });
