@@ -25,25 +25,39 @@ request.get(URL, { json: true }, (error, response, body) => {
     }
   });
 
-  let task = 0;
   const length = Object.keys(todos).length;
   if (length === 0) {
     console.log('{}');
     return;
   }
 
-  for (const key in todos) {
-    if (task === 0) {
-      if (length !== 1) {
-        console.log('{ \'' + key + '\': ' + todos[key] + ',');
-      } else {
-        console.log('{ \'' + key + '\': ' + todos[key] + ' }');
+  if (length === 2) {
+    let output = '{ ';
+    let isFirst = true;
+    for (const key in todos) {
+      if (!isFirst) {
+        output += ', ';
       }
-    } else if (task === length - 1) {
-      console.log('  \'' + key + '\': ' + todos[key] + ' }');
-    } else {
-      console.log(`  '${key}': ${todos[key]},`);
+      output += `'${key}': ${todos[key]}`;
+      isFirst = false;
     }
-    task++;
+    output += ' }';
+    console.log(output);
+  } else {
+    let task = 0;
+    for (const key in todos) {
+      if (task === 0) {
+        if (length !== 1) {
+          console.log('{ \'' + key + '\': ' + todos[key] + ',');
+        } else {
+          console.log('{ \'' + key + '\': ' + todos[key] + ' }');
+        }
+      } else if (task === length - 1) {
+        console.log('  \'' + key + '\': ' + todos[key] + ' }');
+      } else {
+        console.log(`  '${key}': ${todos[key]},`);
+      }
+      task++;
+    }
   }
 });
