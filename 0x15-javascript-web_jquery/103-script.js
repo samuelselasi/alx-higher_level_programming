@@ -1,5 +1,6 @@
 function Hello (language) {
-  $.get('https://fourtonfish.com/hellosalut/', (content, textStatus) => {
+  const apiUrl = 'https://hellosalut.stefanbohacek.dev/?lang=' + language;
+  $.get(apiUrl, (content, textStatus) => {
     if (textStatus === 'success') {
       $('DIV#hello').text(content.hello);
     }
